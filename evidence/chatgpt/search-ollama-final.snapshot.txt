@@ -1,0 +1,37 @@
+# note: interactive (clickable / focusable) elements only.
+- title: "오픈크랩 팩 추천" [url=https://chatgpt.com/c/6acb14cb-58cc-83ee-93ab-872e231e95ee?src=history_search]
+- dialog "전역 검색":
+  - banner:
+    - text: "검색"
+    - combobox "검색" [ref=e576] [focused] [placeholder="검색…"]: "Ollama"
+    - button "지우기" [ref=e577]
+    - button "전체 검색 닫기" [ref=e578]
+    - tablist "검색 결과 유형":
+      - tab "전체" [ref=e579] [selected]
+      - tab "채팅" [ref=e580]
+      - tab "이미지" [ref=e581]
+      - tab "문서" [ref=e582]
+      - tab "프로젝트" [ref=e583]
+    - button "라이브러리 소스 필터링" [ref=e584]
+  - tabpanel "전체" [ref=e592] [scrollable]:
+    - listbox [ref=e589]:
+      - option "원격 데스크톱 방화벽 재차단 확인…응답 불가 | Ollama 등 모델 제공 서버의 자동 실행 상태 점검 | | 외부 접속 허용 이후 보안 문제 | 승인된 출발지 IP로 방화벽 규칙" [ref=e590] [selected]
+      - option "RAG 구축 순서와 내용…확인된 환경은 Ollama + Qwen3:8B + Open WebUI에서 로컬 채팅이 정상 작동했다는 것이며, **Vector RAG와 원격 접속에 대한 " [ref=e591]
+      - option "클라우드 AI PC 영향 unerquicklich…M**입니다. Ollama, LM Studio, vLLM 등으로 Llama, Qwen, Gemma 같은 모델을 직접 PC에서 돌린" [ref=e593]
+      - option "Windows RDP 동시접속 조사… n8n ↓ Ollama API ↓ Qwen3 14B ↓ 24시간 자동 처리 ``` 가 가능합니다. API 사용료도 없습니다. 또 사내 문서를 " [ref=e594]
+      - option "사내 제안서 RAG 구축 가이드…음 | 현재 Ollama 의 Qwen3:8B 배포본은 약 **8.19B 파라미터, Q4_K_M 기준 약 5.2GB**, 약 40K 컨텍스트로 배포되" [ref=e595]
+      - option "타입세이프 AI 설명… ↓ 8단계 Ollama / llama.cpp 등으로 로컬 추론 ↓ 9단계 MCP 연결 ↓ 10단계 OpenCrab GraphRAG 연결 ``` 저라면 **“" [ref=e596]
+      - option "프롬프트 개선 로컬 LLM 구축…주세요. - Ollama - LM Studio - llama.cpp - Open WebUI - Docker 기반 구축 - 기타 사내 운영에 적합한 " [ref=e597]
+      - option "로컬 LLM 구축안… 대상 | | Ollama | TCP `11434` | 외부 접근 불필요 | | 원격 데스크톱 | TCP `3389` | 기존 관리자 접속 유지 | 목표는 다음" [ref=e598]
+      - option "파인튜닝과 데이터 우선순위…n3:8B + Ollama + Open WebUI** 환경과 향후 적용할 **Vector RAG + GraphRAG + Ontology**를 기준으로 설" [ref=e599]
+      - option "AI LLM 기술 뉴스 브리핑…한 부여 - Ollama·MCP·코딩 에이전트의 외부 네트워크 목적지를 허용목록으로 제한 - 에이전트용 OS 계정과 사람 계정을 분리하고 파일·프로세" [ref=e600]
+      - option "PEP 668 fix… like **Ollama**, **Llama 3**, or **GPT4All**: ```python from langchain_community.chat_m" [ref=e601]
+      - option "구조 설명…] LLM - Ollama - 외부 LLM API - 사내 구축 LLM ↓ [서비스 계층] 웹 애플리케이션 챗봇 RFP 분석 시스템 제안전략 생성 시스템 ``` 사내 R" [ref=e602]
+      - option "웹소설 자동화 워크플로우… 로컬 LLM/Ollama 활용 | 가능 | 장기 비용 절감 가능 | 품질, 속도, 세팅 난이도 이슈 | 보조용 | n8n은 OpenAI Chat Mode" [ref=e603]
+      - option "프롬프트 개선 n8n 워크플로우…능이 필요하면 Ollama 등 무료 로컬 LLM 대안을 우선 제안할 것. 4. workflow는 초보자가 따라 하기 쉽도록 3~8개 내외의 n8n " [ref=e604]
+      - option "LangChain 필요성 질문…Gemini, Ollama 를 자주 교체한다. - 모델마다 다른 호출 코드를 관리하기 어렵다. - 도구가 10개 이상으로 늘어난다. - 모델이 상황에" [ref=e605]
+      - option "앱 기획 및 프롬프트 개선… 정확히는 **Ollama 모델에 MCP 서버를 직접 장착하는 것이 아니라**, 중간에 있는 로컬 앱이 다음 두 역할을 함께 수행해야 합니다. ```te" [ref=e606]
+      - option "무료 n8n 워크플로우 설계…**5** | Ollama 로컬 AI 텍스트 분류 | 텍스트를 로컬 AI로 요약/분류 | Trigger, HTTP Request/Ollama, IF, " [ref=e607]
+      - option "Google AI Studio vs OpenAI Apps…j, MCP, Ollama, OpenCrab 연동 - 복잡한 문서 변환 기능 남진님은 백엔드 개발 경험이 있으므로, 최종적" [ref=e608]
+- iframe:
+  - button "Open selection tools" [ref=f3e1]

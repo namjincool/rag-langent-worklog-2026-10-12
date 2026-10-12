@@ -1,0 +1,32 @@
+[
+  {
+    "file": "artifacts/langent-runtime-data/chroma_db/chroma.sqlite3",
+    "sqlite_quick_check": [
+      [
+        "ok"
+      ]
+    ],
+    "embeddings_table_rows": 27,
+    "collections": [
+      [
+        "langent_knowledge",
+        384
+      ]
+    ]
+  },
+  {
+    "file": "artifacts/01_vector_db/data/chroma_db/chroma.sqlite3",
+    "sqlite_quick_check": [
+      [
+        "ok"
+      ]
+    ],
+    "embeddings_table_rows": 27,
+    "collections": [
+      [
+        "langent_knowledge",
+        384
+      ]
+    ]
+  }
+]

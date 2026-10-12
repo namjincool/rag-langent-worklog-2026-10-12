@@ -1,0 +1,21 @@
+# note: interactive (clickable / focusable) elements only.
+- title: "ChatGPT" [url=https://chatgpt.com/library]
+- dialog "전역 검색":
+  - banner:
+    - text: "검색"
+    - combobox "검색" [ref=e239] [focused] [placeholder="검색…"]: "Qwen3"
+    - button "지우기" [ref=e240]
+    - button "전체 검색 닫기" [ref=e241]
+    - tablist "검색 결과 유형":
+      - tab "전체" [ref=e242] [selected]
+      - tab "채팅" [ref=e243]
+      - tab "이미지" [ref=e244]
+      - tab "문서" [ref=e245]
+      - tab "프로젝트" [ref=e246]
+    - button "라이브러리 소스 필터링" [ref=e247]
+  - tabpanel "전체":
+    - listbox [ref=e263]:
+      - option "RAG 구축 순서와 내용…llama + Qwen3:8B + Open WebUI에서 로컬 채팅이 정상 작동했다는 것이며, **Vector RAG와 원격 접속에 대한 실제 검증은 아직" [ref=e264] [selected]
+      - option "로컬 LLM 구축안…ma 설치 및 Qwen3 모델 연결 완료 Open WebUI 관리자 로그인 완료 Open WebUI에서 AI 채팅 응답 확인 **다음: 사내 다른 PC에서 안전" [ref=e265]
+- iframe:
+  - button "Open selection tools" [ref=f3e1]

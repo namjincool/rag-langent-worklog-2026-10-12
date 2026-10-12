@@ -1,0 +1,104 @@
+CANONICAL_ORIGIN https://namjin-ai-systems.namjini.chatgpt.site
+- title: "남진 | AI 자동화와 GraphRAG" [url=https://namjin-ai-systems.namjini.chatgpt.site/]
+- banner:
+  - link "사이트 상단으로 이동" [ref=e1]: "남진"
+  - navigation "주요 메뉴" [ref=e2]:
+    - link "프로젝트" [ref=e3]
+    - link "설계 흐름" [ref=e4]
+    - link "학습 여정" [ref=e5]
+- main:
+  - region:
+    - text: "AI Automation · Knowledge Graph"
+    - heading "업무에 흩어진 지식을로" [level=1]: "업무에 흩어진 지식을 연결 가능한 구조 로"
+    - text: "n8n, MCP, Neo4j와 GraphRAG를 연결해 문서 업무를 근거가 남는 지식으로 바꾸는 방법을 설계하고 학습합니다.\n          \n            현재 단계 · 학습 및 설계\n             관심 분야 · AI 업무 자동화"
+    - link "프로젝트 살펴보기" [ref=e6]
+    - link "설계 흐름 보기" [ref=e7]
+    - img "문서에서 요구사항을 추출하고 지식 그래프와 GraphRAG 답변으로 이어지는 프로젝트 개념도": "DOCUMENT → KNOWLEDGE → ANSWER\n          \n           01 / SOURCE RFP · PDF\n           02 / STRUCTURE 요구사항\n           03 / KNOWLEDGE Ontology · Neo4j\n           04 / RESPONSE GraphRAG 답변\n           05 / EVIDENCE 출처 · 검증 기준\n           AI 프로젝트 업무 비서 구상 개념도 · 구현 완료 화면이 아닙니다"
+  - region:
+    - text: "01 / PROJECT CONCEPT"
+    - heading "문서에서 답변까지,근거가 이어지는 AI 비서" [level=2]
+    - text: "RFP와 제안 문서를 구조화해 요구사항을 찾고, 관련 지식과 출처를 함께 보여주는 업무 지원 흐름을 구상합니다.\n        \n        \n          \n            대표 프로젝트 구상"
+    - heading "AI 프로젝트업무 비서" [level=3]: "AI 프로젝트 업무 비서"
+    - text: "문서 안의 요구사항, 시스템, 기관, 일정 정보를 온톨로지에 맞춰 정리하고, 그래프 기반 검색으로 질문에 답하는 지식 시스템입니다.\n            \n              n8n MCP Neo4j GraphRAG\n            \n             현재는 학습·설계 단계입니다. 구현 완료 실적이 아니라 목표 구조와 검증 계획을 기록합니다."
+    - article:
+      - text: "01 / INGEST"
+      - heading "문서 수집과 분할" [level=4]
+      - text: "RFP·PDF에서 페이지와 문단 위치를 보존해 근거 추적이 가능한 단위로 나눕니다."
+    - article:
+      - text: "02 / EXTRACT"
+      - heading "요구사항 구조화" [level=4]
+      - text: "LLM이 항목, 주체, 조건, 출처를 추출하고 사람이 확인할 수 있는 형태로 정리합니다."
+    - article:
+      - text: "03 / MODEL"
+      - heading "온톨로지와 그래프" [level=4]
+      - text: "엔터티와 관계를 공통 모델에 매핑하고 Neo4j에 연결합니다."
+    - article:
+      - text: "04 / RETRIEVE"
+      - heading "질의와 근거 응답" [level=4]
+      - text: "MCP 도구로 그래프를 조회하고 답변마다 연결된 문서 근거를 제시합니다."
+  - region:
+    - text: "02 / SYSTEM FLOW"
+    - heading "한 단계씩, 근거를 잃지 않도록" [level=2]
+    - text: "각 단계의 입력과 결과를 분명히 두어 오류가 어디서 생겼는지 확인할 수 있도록 설계합니다."
+    - group "프로젝트 처리 단계":
+      - button "STEP 01 문서 인입 RFP · PDF · 표" [ref=e8]
+      - button "STEP 02 정보 추출 요구사항 · 출처" [ref=e9]
+      - button "STEP 03 온톨로지 매핑 엔터티 · 관계" [ref=e10]
+      - button "STEP 04 그래프 저장 Neo4j · Cypher" [ref=e11]
+      - button "STEP 05 그래프 조회 MCP · GraphRAG" [ref=e12]
+      - button "STEP 06 답변 검증 출처 · 품질" [ref=e13]
+    - text: "단계를 선택하면 설계 시 확인할 내용을 볼 수 있습니다."
+    - complementary:
+      - text: "STEP 01 / SOURCE"
+      - heading "문서의 위치를 함께 보존합니다" [level=3]
+      - text: "문서를 나눌 때 페이지와 문단 ID를 유지해, 나중에 답변의 근거를 원문으로 되짚을 수 있게 합니다.\n            확인 기준 · 원문 페이지와 텍스트 구간을 다시 찾을 수 있는가"
+  - region:
+    - text: "03 / EVALUATION"
+    - heading "답변의 품질을 감으로 판단하지 않기" [level=2]
+    - text: "정답 세트와 근거 데이터를 준비해 검색, 그래프 구조, 최종 답변을 각각 확인하는 평가 흐름을 학습합니다."
+    - article:
+      - text: "RETRIEVAL"
+      - heading "필요한 근거를 찾았나" [level=3]
+      - text: "Golden QA를 기준으로 관련 문단과 그래프 경로가 검색 결과에 포함되는지 검토합니다.\n            점검 대상 · 검색 결과와 누락된 근거"
+    - article:
+      - text: "GRAPH QUALITY"
+      - heading "엔터티와 관계가 맞나" [level=3]
+      - text: "추출된 개체, 관계 유형, 출처 연결이 정한 온톨로지 규칙을 따르는지 확인합니다.\n            점검 대상 · 그래프 구조와 출처 연결"
+    - article:
+      - text: "ANSWER QUALITY"
+      - heading "근거에 충실한 답변인가" [level=3]
+      - text: "Faithfulness, groundedness, answer relevance를 나누어 답변을 평가합니다.\n            점검 대상 · 근거 일치도와 질문 적합성"
+    - text: "평가 수치는 아직 수집하지 않았습니다. 여기에는 목표로 삼는 검증 항목만 정리했습니다."
+  - region:
+    - text: "04 / LEARNING PATH"
+    - heading "작게 익히고,하나의 시스템으로 연결하기" [level=2]
+    - text: "자동화부터 평가까지 필요한 기초를 차례로 보완하며, 각 기술을 한 프로젝트 안에서 검증하는 것이 목표입니다."
+    - article:
+      - text: "0"
+      - heading "API · Webhook · JSON과 n8n" [level=3]
+      - text: "데이터가 자동화 흐름을 따라 이동하는 방식을 익힙니다."
+    - article:
+      - text: "0"
+      - heading "MCP 도구와 서버" [level=3]
+      - text: "모델이 외부 기능을 일관된 도구 인터페이스로 호출하는 흐름을 살펴봅니다."
+    - article:
+      - text: "0"
+      - heading "Neo4j와 Cypher" [level=3]
+      - text: "노드와 관계를 모델링하고 그래프 질의를 작성하는 기본기를 다집니다."
+    - article:
+      - text: "0"
+      - heading "온톨로지와 GraphRAG" [level=3]
+      - text: "업무 개념을 그래프 구조로 표현하고 검색·생성 과정에 연결합니다."
+    - article:
+      - text: "0"
+      - heading "RAG 품질 평가" [level=3]
+      - text: "Golden QA와 근거 검증으로 검색 및 답변의 약점을 찾습니다."
+  - region:
+    - text: "BUILDING IN PUBLIC, ONE STEP AT A TIME"
+    - heading "배운 내용을 작동하는 흐름으로" [level=2]
+    - text: "학습과 설계가 구체화될 때 이 기록도 함께 업데이트합니다."
+    - link "처음으로" [ref=e14]
+- contentinfo: "© 2026 남진 · AI Automation & Knowledge Systems\n       학습·설계 노트"
+- link "ChatGPT에서 사이트 편집" [ref=e15]
+- button "사이트 편집" [ref=e16]
+- button "도구 모음 숨기기" [ref=e17]

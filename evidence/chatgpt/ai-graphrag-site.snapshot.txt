@@ -1,0 +1,10 @@
+CANONICAL_URL https://namjin-ai-systems.namjini.chatgpt.site/
+- title: "로그인 필요" [url=https://namjin-ai-systems.namjini.chatgpt.site/]
+- main:
+  - link "ChatGPT" [ref=e1]:
+    - image "ChatGPT"
+  - heading "접속하려면 로그인하세요" [level=1]
+  - link "ChatGPT로 계속" [ref=e2]
+  - text: "이 사이트는 안전한 로그인을 위해 ChatGPT를 사용합니다. OpenAI의"
+  - link "개인정보 보호정책" [ref=e3]
+  - text: "을 확인할 수 있습니다."

@@ -1,0 +1,4 @@
+CANONICAL_URL https://chatgpt.com/g/g-p-6ab1ec90d2048191923833b6b5d8b71e-llm-gucug/c/6acb4c40-c3fc-83e8-b13d-ed3c4da12059
+- title: "RAG 구축 순서와 내용" [url=https://chatgpt.com/g/g-p-6ab1ec90d2048191923833b6b5d8b71e-llm-gucug/c/6acb4c40-c3fc-83e8-b13d-ed3c4da12059?src=history_search]
+[2m[ok | 698ms][0m
+

@@ -1,0 +1,10 @@
+{
+  "checked_at_utc": "2026-10-12T11:47:04.346134+00:00",
+  "artifact_hashes_checked": 42,
+  "published_files_before_this_receipt": 107,
+  "published_bytes_before_this_receipt": 16492437,
+  "json_and_jsonl": "valid",
+  "credential_pattern_scan": "no matches; this does not replace review of arbitrary sensitive document contents",
+  "env_and_scratch_files": "excluded",
+  "service_tests": "not performed; archival operation only"
+}

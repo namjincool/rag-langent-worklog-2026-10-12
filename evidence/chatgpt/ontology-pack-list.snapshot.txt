@@ -1,0 +1,5 @@
+CANONICAL_URL https://chatgpt.com/g/g-p-6a9cf8a9ff948191b51efc1190cab3f6-jagigyebal/c/6acb24ef-edd0-83e8-a494-a1cbf7b82517
+- title: "온톨로지 팩 조회" [url=https://chatgpt.com/g/g-p-6a9cf8a9ff948191b51efc1190cab3f6-jagigyebal/c/6acb24ef-edd0-83e8-a494-a1cbf7b82517?src=history_search]
+
+- iframe:
+  - button "Open selection tools" [ref=f3e1]

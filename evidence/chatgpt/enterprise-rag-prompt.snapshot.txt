@@ -1,0 +1,417 @@
+CANONICAL_URL https://chatgpt.com/g/g-5XtVuRE8Y-prompt-engineer/c/6accb06a-5e54-83ee-a5a8-22583abb5e60
+- title: "프롬프트 개선 RAG 구축" [url=https://chatgpt.com/g/g-5XtVuRE8Y-prompt-engineer/c/6accb06a-5e54-83ee-a5a8-22583abb5e60]
+- region "대화" [ref=e66] [scrollable]:
+  - separator "오늘 오후 7:04": "오늘  오후 7:04"
+  - text: "아래는 기존 프롬프트를  2026년 현시점 기준, Vector RAG를 가장 쉽고 빠르게 구축하기 위한 최신 기술 조사 + 도구 비교 + 실제 구현까지 유도하는 고급 프롬프트 로 개선한 버전입니다.단순히 Vector DB나 RAG 프레임워크를 추천하는 수준을 넘어  MCP, Skills, Tools, AI Agent, No-Code, Low-Code, 오픈소스, 관리형 서비스 까지 모두 평가하도록 설계했습니다."
+  - heading "최적화된 프롬프트" [level=2]
+  - heading "개선된 핵심 포인트" [level=2]
+  - text: "기존 프롬프트가 단순히 *\"가장 쉬운 방법을 찾아줘\"*였다면, 개선된 프롬프트는  탐색 → 검증 → 비교 → 선정 → 구축 → 테스트 까지 수행하도록 설계했습니다.특히 세 가지를 강화했습니다."
+  - list:
+    - listitem: "MCP / Skills / Tools 구분: 서로 다른 기술을 무조건 결합하지 않고, 실제로 구축을 쉽게 만드는지 판단합니다."
+    - listitem: "2026년 기준 최신성 검증: 과거에 유행한 방법보다 현재 설치 가능하고 유지되는 기술을 우선합니다."
+    - listitem: "실행 중심 결과: 제품 소개가 아닌, 자신의 PDF나 문서를 업로드하고 질문할 수 있는 실제 RAG 환경 구축을 목표로 합니다."
+  - text: "추가로, 이 프롬프트의 목표를 **\"나에게 가장 쉬운 RAG\"**로 좁히면 더 정확한 결과를 얻을 수 있습니다.내 환경에 맞게 프롬프트 구체화하기"
+  - form:
+    - label: "사용 환경"
+    - radiogroup "Options" [ref=e67]:
+      - label [ref=e68]:
+        - radio [ref=e69] [checked]
+        - text: "제한 없음 (가장 쉬운 방법 우선)"
+      - label [ref=e70]:
+        - radio [ref=e71]
+        - text: "ChatGPT / Codex 중심"
+      - label [ref=e72]:
+        - radio [ref=e73]
+        - text: "Claude / Claude Code 중심"
+      - label [ref=e74]:
+        - radio [ref=e75]
+        - text: "로컬 PC / 셀프호스팅"
+    - label: "코딩 허용 수준"
+    - radiogroup "Options" [ref=e76]:
+      - label [ref=e77]:
+        - radio [ref=e78]
+        - text: "코딩 전혀 없음"
+      - label [ref=e79]:
+        - radio [ref=e80] [checked]
+        - text: "설치 명령어·복사 붙여넣기 가능"
+      - label [ref=e81]:
+        - radio [ref=e82]
+        - text: "Python / Docker 등 개발 가능"
+    - label: "주요 사용 목적"
+    - radiogroup "Options" [ref=e83]:
+      - label [ref=e84]:
+        - radio [ref=e85] [checked]
+        - text: "개인 문서 검색 및 질의응답"
+      - label [ref=e86]:
+        - radio [ref=e87]
+        - text: "AI Agent용 장기 지식베이스"
+      - label [ref=e88]:
+        - radio [ref=e89]
+        - text: "서비스/API에 RAG 연결"
+      - label [ref=e90]:
+        - radio [ref=e91]
+        - text: "기업 내부 문서 검색"
+    - button "내 환경에 최적화된 프롬프트 만들기" [ref=e92]
+  - button "복사" [ref=e93]
+  - button "소리 내어 읽기" [ref=e94]
+  - button "응답 다시 생성" [ref=e95]
+  - button "추가 액션" [ref=e96]
+  - text: "이번에는 **기업 내부 문서 검색(Enterprise RAG)**에 최적화하되, Low-Code 수준에서 가장 빠르고 쉽게 구축하는 것 을 최우선으로 설정했습니다.개인용 RAG와 달리 기업용은 문서 권한, 데이터 유출 방지, SSO, 감사 로그, 부서별 접근 통제, 운영 비용까지 중요합니다. 다만 처음부터 복잡한 엔터프라이즈 아키텍처를 구축하지 않고, 최소 구성으로 시작해 실제 운영 환경까지 확장할 수 있는 방법 을 찾도록 설계했습니다."
+  - heading "Enterprise Vector RAG 구축을 위한 최적화 프롬프트" [level=2]
+  - banner:
+    - button "라이브러리에 추가" [ref=e97]: "글쓰기"
+    - button "복사" [ref=e98]
+    - button "편집기 열기" [ref=e99]
+  - textbox "작성을 시작하세요" [ref=e100]:
+    - text: "Role: Enterprise RAG Architect & AI Automation Engineer\n\n당신은 기업용 Vector RAG, Enterprise Search, LLM, MCP(Model Context Protocol), Agent Skills, AI Coding Tools, Vector Database, 데이터 보안 및 AI 인프라 구축에 전문성을 갖춘 수석 AI 시스템 아키텍트입니다.\n\n1. 핵심 미션\n\n2026년 현시점에 실제로 이용 가능한 기술을 기준으로, 기업 내부 문서를 안전하게 검색하고 질의응답할 수 있는 Enterprise Vector RAG를 가장 쉽고 빠르게 구축하는 방법을 조사하고 실제 구축 가이드까지 제공하세요.\n\n다음 조건을 반드시 적용하세요.\n\n사용 환경: 제한 없음. SaaS, 클라우드, 로컬, 온프레미스 모두 비교\n\n개발 수준: Low-Code. CLI, Docker, Docker Compose, 환경변수 설정, 코드 복사·붙여넣기 가능\n\n사용 목적: 기업 내부 문서 통합 검색, 지식베이스 구축, 출처 기반 AI 질의응답\n\n최우선 목표: 최소 코드, 최소 인프라, 최소 구축 시간\n\n필수 요구: 기업 데이터 보안, 권한 제어, 확장 가능성\n\n추가 검토: MCP, Skills, AI Agent, 자동화 도구를 활용한 구축 및 운영 효율 개선\n\n제품이나 프레임워크에 대한 선입견 없이 가장 단순한 구현 방법을 찾으세요.\n\n최신 정보를 검증할 수 없다면 확인 가능한 범위를 명시하고, 추정과 검증 사실을 구분하세요.\n\n2. Enterprise RAG 필수 기능\n\n다음 요구사항을 MVP 필수 기능, 운영 전 필수 기능, 추후 확장 기능으로 구분하세요.\n\nA. 문서 처리 및 검색\n\nPDF, DOCX, PPTX, XLSX, TXT, Markdown 지원\n\nGoogle Drive, SharePoint, OneDrive, Confluence, Notion 등의 데이터 소스 연동\n\n문서 업로드 및 자동 동기화\n\nChunking 및 Embedding\n\nVector Search\n\nHybrid Search(BM25 + Vector)\n\nMetadata Filtering\n\nReranking\n\n출처 및 원문 링크 제공\n\n문서 업데이트와 삭제 시 검색 인덱스 동기화\n\n검색 실패 및 근거 부족 시 답변 제한\n\nB. 기업 보안 및 접근 통제\n\nSSO(OIDC/SAML)\n\nRBAC(역할 기반 접근 제어)\n\n문서 수준 ACL(Access Control List)\n\n부서별·사용자별 검색 권한\n\n사용자 인증 정보와 원본 문서 권한 연계\n\n데이터 암호화\n\nAPI Key 및 Secret 관리\n\n데이터 보존 및 삭제 정책\n\n감사 로그 및 접근 이력\n\n외부 LLM으로 전달되는 데이터 통제\n\n멀티테넌트 또는 조직별 데이터 격리\n\n중요: 로그인 기능이나 RBAC를 지원한다고 해서 문서 수준 접근 제어가 자동으로 보장되는 것은 아닙니다.\n\n문서 권한을 검색 단계에서 강제하는지, 원문 권한 변경이 인덱스에도 반영되는지 별도로 검증하세요.\n\n검색 결과를 LLM에 전달하기 전에 권한 필터가 적용되어야 합니다.\n\nC. 기업 운영\n\n백업과 복구\n\n장애 대응\n\n모니터링\n\n사용자별 사용량 관리\n\n비용 모니터링\n\n검색 품질 평가\n\n데이터 동기화 실패 감지\n\n확장성과 유지보수 편의성\n\n3. 조사해야 할 기술 범위\n\n다음 범주를 모두 조사하고, 공식 문서와 실제 지원 기능을 기준으로 비교하세요.\n\nA. No-Code / Low-Code 플랫폼\n\nDify\n\nAnythingLLM\n\nFlowise\n\nn8n\n\nOpen WebUI\n\n기타 기업 환경에 적합한 최신 플랫폼\n\n평가 항목:\n\nDocker 기반 설치 난이도\n\n문서 업로드 및 자동 인덱싱\n\n기업 인증 및 접근 통제\n\n문서 수준 ACL 지원 여부\n\n기업용 기능의 라이선스 및 요금제 제한\n\n운영 및 유지보수 난이도\n\nB. Vector Database\n\nQdrant\n\nSupabase pgvector\n\nPostgreSQL + pgvector\n\nChroma\n\nPinecone\n\nWeaviate\n\nMilvus / Zilliz\n\n기타 관리형 Vector DB\n\n각 제품의 운영 부담, Metadata Filtering, 보안, 백업, 비용, 확장성을 비교하세요.\n\nC. RAG Framework\n\nLlamaIndex\n\nLangChain\n\nLangGraph\n\nHaystack\n\n기타 최신 RAG Framework\n\n복잡한 Framework를 사용하는 것보다 완성형 플랫폼이 더 쉽다면 Framework를 권장하지 마세요.\n\nD. Enterprise Managed RAG\n\nAzure AI Search 기반 RAG\n\nAWS Bedrock Knowledge Bases\n\nGoogle Cloud 기반 관리형 RAG\n\nOpenAI File Search 및 Hosted Retrieval\n\n기타 기업용 관리형 검색 플랫폼\n\n각 서비스에 대해 문서 권한 연계, 사용자별 접근 통제, 데이터 처리 정책, 설정 난이도 및 비용을 검토하세요.\n\nE. MCP\n\n다음을 조사하세요.\n\n기업 문서 검색용 MCP Server\n\nVector DB MCP Server\n\nGoogle Drive / SharePoint / Confluence 연동용 MCP 도구\n\nMCP를 활용한 문서 검색 및 지식베이스 접근\n\nRAG를 MCP Tool 형태로 노출하는 방법\n\n인증 및 사용자 권한 전달 방식\n\nMCP 사용 시 데이터 유출 위험과 권한 경계\n\nMCP가 RAG 인덱싱과 검색을 대체하는지, 아니면 기존 검색 서비스를 Agent에 연결하는 인터페이스인지 구분하세요.\n\nF. Agent Skills / AI Coding Tools\n\nClaude Code 및 관련 Skills\n\nCodex / ChatGPT 기반 개발\n\nCursor\n\nAI Agent 기반 Docker 및 환경 설정 자동화\n\nRAG 파이프라인 자동 생성\n\n검색 품질 테스트 자동화\n\n동기화 및 운영 작업 자동화\n\n실제 존재하고 확인 가능한 도구, Skill 및 기능만 추천하세요.\n\nG. 추가 도구\n\n문서 파싱 및 OCR\n\nEmbedding API\n\n로컬 Embedding 모델\n\nReranking 서비스\n\nETL 및 데이터 커넥터\n\n관측성과 RAG 평가 도구\n\n특정 도구를 반드시 포함하기보다 구축 난이도 감소에 기여하는지 평가하세요.\n\n4. 평가 및 순위 선정\n\n모든 후보를 아래 기준으로 평가하세요.\n\n항목	가중치\n구축 편의성 및 Low-Code 적합성	25%\n기업 보안 및 문서 권한 통제	25%\n유지보수 및 운영 편의성	15%\n문서 커넥터 및 동기화	10%\n초기 비용 및 총소유비용	10%\n검색 품질 및 정확성	10%\nMCP / Skills / Agent 연동성	5%\n\n검증 가능한 근거가 있을 때만 점수를 부여하세요.\n\n정보가 부족한 항목은 미확인으로 표기하고, 보안상 필수 요구사항을 충족하지 못하는 후보는 높은 종합 점수와 무관하게 실제 운영 후보에서 제외하세요.\n\n기업용 Enterprise Vector RAG 구축 추천 TOP 5를 선정하고, 각 후보에 대해 다음을 제공하세요.\n\n권장 아키텍처\n\n예상 구축 시간과 전제 조건\n\n코딩 및 설정 난이도\n\n초기 비용과 운영 비용\n\n보안 및 권한 제어의 지원 범위\n\n장점과 한계\n\n가장 적합한 기업 환경\n\n5. 세 가지 구축 시나리오\n\n다음 세 가지에 대해 각각 가장 쉬운 방법을 제안하세요.\n\nScenario A: Fastest Enterprise RAG MVP\n\n목표:\n\n최소한의 설치\n\n실제 문서 업로드\n\n빠른 Vector Search\n\nLLM 기반 질의응답\n\n문서 출처 표시\n\n소규모의 접근 제한된 테스트 문서만 사용하고, 운영 수준 권한 통제가 없다면 실제 민감한 기업 문서를 투입하지 마세요.\n\nScenario B: Secure Enterprise RAG\n\n목표:\n\n실제 기업 문서 사용\n\nSSO\n\n문서 수준 ACL\n\n사용자별 권한 필터링\n\n감사 로그\n\n안전한 문서 동기화\n\n운영 모니터링\n\n이 시나리오를 기업 실사용을 위한 핵심 추천안으로 간주하세요.\n\nScenario C: Agentic Enterprise RAG\n\n목표:\n\nEnterprise RAG + MCP\n\nAI Agent / Skills 활용\n\n문서 검색 Tool 제공\n\n권한을 유지한 Agent 질의응답\n\n반복 작업 자동화\n\nMCP를 도입하는 것이 실제로 유리한 상황에만 권장하세요.\n\n6. 최종 아키텍처 선정\n\n세 가지 시나리오를 비교한 뒤 다음을 각각 선정하세요.\n\n가장 빨리 구축할 수 있는 MVP\n\n가장 쉽게 안전하게 운영할 수 있는 Enterprise RAG\n\nMCP 및 Agent 확장에 가장 적합한 RAG\n\n그중 기업에서 실제로 사용할 수 있으면서 구축과 운영이 가장 쉬운 방법을 최종 1순위로 선정하세요.\n\n선정 근거와 포기해야 하는 기능 또는 비용상의 타협점을 명확히 설명하세요.\n\n7. 실행 가능한 구축 튜토리얼\n\n최종 추천 솔루션을 대상으로 초보 개발자가 따라 할 수 있는 Low-Code 구축 가이드를 작성하세요.\n\n다음 순서를 따르세요.\n\nStep 1. 설치 환경 준비\n\n계정 및 필수 도구\n\nDocker / Docker Compose 필요 여부\n\n클라우드 리소스\n\nAPI Key 및 Secret 준비\n\nStep 2. 시스템 배포\n\n설치 명령어\n\nDocker Compose 예시(필요한 경우)\n\n환경변수 예시\n\n서비스 실행 및 정상 상태 확인\n\nStep 3. 문서 연결\n\n파일 업로드\n\n내부 문서 저장소 연결\n\n동기화 및 삭제 정책\n\nStep 4. Vector RAG 구성\n\n파싱 및 Chunking\n\nEmbedding 모델\n\nVector DB\n\n검색 설정\n\nReranking 필요 여부\n\nStep 5. LLM 연결\n\n모델 설정\n\n검색 문맥 전달\n\n근거 기반 응답\n\n출처 표시\n\nStep 6. 보안 구성\n\n사용자 인증\n\nSSO\n\n사용자 및 부서 권한\n\n문서 수준 ACL\n\n비밀 정보 및 데이터 전달 정책\n\nStep 7. 테스트\n\n테스트 문서 인덱싱\n\n질문 및 검색\n\n출처 정확도 확인\n\n권한 없는 문서 접근 차단\n\n데이터 삭제 후 검색 차단\n\n검색 실패 상황 테스트\n\nStep 8. 운영 준비\n\n백업\n\n로그\n\n사용량 모니터링\n\n비용 관리\n\n장애 대응\n\n명령어와 설정값은 공식 문서로 검증한 것만 사용하세요.\n\n실제 구축을 수행할 수 없는 환경이라면 구축 완료를 주장하지 말고 재현 가능한 절차와 검증 명령어를 제공하세요.\n\n8. MCP 및 Agent Skills 통합\n\n추천 RAG를 AI Agent에서 활용하기 위한 최소 구성 방법을 제안하세요.\n\n다음 항목을 포함하세요.\n\nRAG 검색 API를 MCP Tool로 제공하는 구조\n\nMCP Server 필요 여부\n\nAgent가 문서를 검색하는 흐름\n\n사용자 인증 및 권한 전파\n\nTool 사용 권한 제한\n\n읽기 전용 기본 정책\n\nPrompt Injection 및 데이터 유출 방어\n\nAI Coding Agent를 이용한 구축 자동화\n\n직접 구축하는 방식과 MCP·Skills를 사용하는 방식을 비교하여 실제로 줄어드는 작업과 추가되는 복잡성을 평가하세요.\n\n9. 실제 운영 전 필수 검증\n\n최소 다음 테스트를 정의하세요.\n\n정상 권한 사용자가 허용된 문서를 검색할 수 있는가?\n\n권한이 없는 사용자가 다른 부서 문서를 검색할 수 없는가?\n\n인용된 출처가 실제 검색 문서와 일치하는가?\n\n문서 삭제 및 권한 변경이 검색 결과에 반영되는가?\n\n근거가 없을 때 허위 답변을 생성하지 않는가?\n\n문서에 삽입된 악의적 지시를 실행하지 않는가?\n\n사용자·문서·검색 이력을 적절하게 감사할 수 있는가?\n\n인덱싱 실패와 API 오류가 감지되는가?\n\n문서 권한 우회 가능성이 남아 있다면 해당 시스템을 Enterprise 운영 준비 완료로 판단하지 마세요.\n\n10. 최종 응답 형식\n\n다음 순서로 작성하세요.\n\nPart 1. Executive Summary\n\n가장 추천하는 Enterprise RAG 솔루션\n\n선정 이유\n\n예상 구축 시간\n\n예상 비용\n\n구현 난이도\n\n운영 적합성\n\nPart 2. 최신 기술 환경\n\nNo-Code / Low-Code\n\nVector DB\n\nManaged RAG\n\nMCP\n\nAgent Skills\n\nAI Coding Tools\n\nPart 3. 추천 TOP 5\n\n비교표\n\n점수 또는 검증된 상대 평가\n\n적합한 기업 환경\n\nPart 4. 최종 추천 아키텍처\n\nMVP\n\nSecure Enterprise\n\nAgentic Enterprise\n\nMermaid 아키텍처 다이어그램\n\nPart 5. 단계별 설치 및 구축 가이드\n\n실제 명령어\n\n설정 예시\n\n문서 검색 테스트\n\nPart 6. 보안 및 권한 구성\n\nSSO\n\nRBAC / ACL\n\n문서 권한 동기화\n\n데이터 보호\n\n감사 로그\n\nPart 7. MCP / Skills / Tool 확장\n\n권장 구성\n\n도입 이점과 비용\n\nAgent 자동화 방법\n\nPart 8. 운영 체크리스트\n\n테스트\n\n모니터링\n\n백업\n\n배포 전 승인 조건\n\nPart 9. 비용 및 확장 로드맵\n\nPoC / MVP\n\n소규모 사내 운영\n\n전사 확대\n\n비용 증가 요인\n\nPart 10. 공식 참고 자료\n\n공식 홈페이지\n\n공식 문서\n\nGitHub\n\n확인된 지원 기능\n\n가격 정보\n\n확인 날짜\n\n11. 반드시 지킬 원칙\n\n쉽게 만드는 것을 우선하되 기업 보안을 희생하지 마세요.\n\n보안 기능의 지원 여부뿐 아니라 실제 적용 조건과 라이선스 제한을 확인하세요.\n\n기술적으로 가능하다는 사실과 기본 제공된다는 사실을 구분하세요.\n\n공식적으로 제공하는 기능과 별도 커스텀 개발이 필요한 기능을 구분하세요.\n\n코드를 최소화하되 권한 검증에 필요한 부분은 생략하지 마세요.\n\nMCP, Skills, AI Agent가 불필요하다면 과감히 제외하세요.\n\n비용과 구축 시간은 전제 조건을 명시한 추정치로 제시하세요.\n\n현재 날짜 기준 최신 정보를 확인하고, 확인되지 않은 사항은 명시하세요.\n\n사소한 선택지를 나열하기보다 실제로 도입 가능한 최종 결론을 제공하세요.\n\n구축 결과가 아니라 단순 설계·가이드인 경우 실제 구현 완료로 표현하지 마세요.\n\n최종 목표\n\n기업의 IT 담당자 또는 초보 개발자가 이 가이드만으로 최소한의 코딩을 통해 내부 문서 검색 RAG를 구축하고, 문서 권한과 데이터 보안을 검증한 뒤, 필요하면 MCP와 AI Agent까지 확장할 수 있도록 하세요.\n\n이론보다 실제 실행을 우선하고, 최종적으로 가장 간단한 안전한 아키텍처 하나를 분명하게 추천하세요."
+    - heading [level=1]: "Role: Enterprise RAG Architect & AI Automation Engineer"
+    - text: "당신은 기업용 Vector RAG, Enterprise Search, LLM, MCP(Model Context Protocol), Agent Skills, AI Coding Tools, Vector Database, 데이터 보안 및 AI 인프라 구축에 전문성을 갖춘 수석 AI 시스템 아키텍트입니다."
+    - heading [level=1]: "1. 핵심 미션"
+    - text: "2026년 현시점에 실제로 이용 가능한 기술을 기준으로, 기업 내부 문서를 안전하게 검색하고 질의응답할 수 있는 Enterprise Vector RAG를 가장 쉽고 빠르게 구축하는 방법을 조사하고 실제 구축 가이드까지 제공하세요.다음 조건을 반드시 적용하세요."
+    - list:
+      - listitem: "사용 환경: 제한 없음. SaaS, 클라우드, 로컬, 온프레미스 모두 비교"
+      - listitem: "개발 수준: Low-Code. CLI, Docker, Docker Compose, 환경변수 설정, 코드 복사·붙여넣기 가능"
+      - listitem: "사용 목적: 기업 내부 문서 통합 검색, 지식베이스 구축, 출처 기반 AI 질의응답"
+      - listitem: "최우선 목표: 최소 코드, 최소 인프라, 최소 구축 시간"
+      - listitem: "필수 요구: 기업 데이터 보안, 권한 제어, 확장 가능성"
+      - listitem: "추가 검토: MCP, Skills, AI Agent, 자동화 도구를 활용한 구축 및 운영 효율 개선"
+    - text: "제품이나 프레임워크에 대한 선입견 없이 가장 단순한 구현 방법을 찾으세요.최신 정보를 검증할 수 없다면 확인 가능한 범위를 명시하고, 추정과 검증 사실을 구분하세요."
+    - heading [level=1]: "2. Enterprise RAG 필수 기능"
+    - text: "다음 요구사항을 MVP 필수 기능, 운영 전 필수 기능, 추후 확장 기능으로 구분하세요."
+    - heading [level=2]: "A. 문서 처리 및 검색"
+    - list:
+      - listitem: "PDF, DOCX, PPTX, XLSX, TXT, Markdown 지원"
+      - listitem: "Google Drive, SharePoint, OneDrive, Confluence, Notion 등의 데이터 소스 연동"
+      - listitem: "문서 업로드 및 자동 동기화"
+      - listitem: "Chunking 및 Embedding"
+      - listitem: "Vector Search"
+      - listitem: "Hybrid Search(BM25 + Vector)"
+      - listitem: "Metadata Filtering"
+      - listitem: "Reranking"
+      - listitem: "출처 및 원문 링크 제공"
+      - listitem: "문서 업데이트와 삭제 시 검색 인덱스 동기화"
+      - listitem: "검색 실패 및 근거 부족 시 답변 제한"
+    - heading [level=2]: "B. 기업 보안 및 접근 통제"
+    - list:
+      - listitem: "SSO(OIDC/SAML)"
+      - listitem: "RBAC(역할 기반 접근 제어)"
+      - listitem: "문서 수준 ACL(Access Control List)"
+      - listitem: "부서별·사용자별 검색 권한"
+      - listitem: "사용자 인증 정보와 원본 문서 권한 연계"
+      - listitem: "데이터 암호화"
+      - listitem: "API Key 및 Secret 관리"
+      - listitem: "데이터 보존 및 삭제 정책"
+      - listitem: "감사 로그 및 접근 이력"
+      - listitem: "외부 LLM으로 전달되는 데이터 통제"
+      - listitem: "멀티테넌트 또는 조직별 데이터 격리"
+    - text: "중요: 로그인 기능이나 RBAC를 지원한다고 해서 문서 수준 접근 제어가 자동으로 보장되는 것은 아닙니다.문서 권한을 검색 단계에서 강제하는지, 원문 권한 변경이 인덱스에도 반영되는지 별도로 검증하세요.검색 결과를 LLM에 전달하기 전에 권한 필터가 적용되어야 합니다."
+    - heading [level=2]: "C. 기업 운영"
+    - list:
+      - listitem: "백업과 복구"
+      - listitem: "장애 대응"
+      - listitem: "모니터링"
+      - listitem: "사용자별 사용량 관리"
+      - listitem: "비용 모니터링"
+      - listitem: "검색 품질 평가"
+      - listitem: "데이터 동기화 실패 감지"
+      - listitem: "확장성과 유지보수 편의성"
+    - heading [level=1]: "3. 조사해야 할 기술 범위"
+    - text: "다음 범주를 모두 조사하고, 공식 문서와 실제 지원 기능을 기준으로 비교하세요."
+    - heading [level=2]: "A. No-Code / Low-Code 플랫폼"
+    - list:
+      - listitem: "Dify"
+      - listitem: "AnythingLLM"
+      - listitem: "Flowise"
+      - listitem: "n8n"
+      - listitem: "Open WebUI"
+      - listitem: "기타 기업 환경에 적합한 최신 플랫폼"
+    - text: "평가 항목:"
+    - list:
+      - listitem: "Docker 기반 설치 난이도"
+      - listitem: "문서 업로드 및 자동 인덱싱"
+      - listitem: "기업 인증 및 접근 통제"
+      - listitem: "문서 수준 ACL 지원 여부"
+      - listitem: "기업용 기능의 라이선스 및 요금제 제한"
+      - listitem: "운영 및 유지보수 난이도"
+    - heading [level=2]: "B. Vector Database"
+    - list:
+      - listitem: "Qdrant"
+      - listitem: "Supabase pgvector"
+      - listitem: "PostgreSQL + pgvector"
+      - listitem: "Chroma"
+      - listitem: "Pinecone"
+      - listitem: "Weaviate"
+      - listitem: "Milvus / Zilliz"
+      - listitem: "기타 관리형 Vector DB"
+    - text: "각 제품의 운영 부담, Metadata Filtering, 보안, 백업, 비용, 확장성을 비교하세요."
+    - heading [level=2]: "C. RAG Framework"
+    - list:
+      - listitem: "LlamaIndex"
+      - listitem: "LangChain"
+      - listitem: "LangGraph"
+      - listitem: "Haystack"
+      - listitem: "기타 최신 RAG Framework"
+    - text: "복잡한 Framework를 사용하는 것보다 완성형 플랫폼이 더 쉽다면 Framework를 권장하지 마세요."
+    - heading [level=2]: "D. Enterprise Managed RAG"
+    - list:
+      - listitem: "Azure AI Search 기반 RAG"
+      - listitem: "AWS Bedrock Knowledge Bases"
+      - listitem: "Google Cloud 기반 관리형 RAG"
+      - listitem: "OpenAI File Search 및 Hosted Retrieval"
+      - listitem: "기타 기업용 관리형 검색 플랫폼"
+    - text: "각 서비스에 대해 문서 권한 연계, 사용자별 접근 통제, 데이터 처리 정책, 설정 난이도 및 비용을 검토하세요."
+    - heading [level=2]: "E. MCP"
+    - text: "다음을 조사하세요."
+    - list:
+      - listitem: "기업 문서 검색용 MCP Server"
+      - listitem: "Vector DB MCP Server"
+      - listitem: "Google Drive / SharePoint / Confluence 연동용 MCP 도구"
+      - listitem: "MCP를 활용한 문서 검색 및 지식베이스 접근"
+      - listitem: "RAG를 MCP Tool 형태로 노출하는 방법"
+      - listitem: "인증 및 사용자 권한 전달 방식"
+      - listitem: "MCP 사용 시 데이터 유출 위험과 권한 경계"
+    - text: "MCP가 RAG 인덱싱과 검색을 대체하는지, 아니면 기존 검색 서비스를 Agent에 연결하는 인터페이스인지 구분하세요."
+    - heading [level=2]: "F. Agent Skills / AI Coding Tools"
+    - list:
+      - listitem: "Claude Code 및 관련 Skills"
+      - listitem: "Codex / ChatGPT 기반 개발"
+      - listitem: "Cursor"
+      - listitem: "AI Agent 기반 Docker 및 환경 설정 자동화"
+      - listitem: "RAG 파이프라인 자동 생성"
+      - listitem: "검색 품질 테스트 자동화"
+      - listitem: "동기화 및 운영 작업 자동화"
+    - text: "실제 존재하고 확인 가능한 도구, Skill 및 기능만 추천하세요."
+    - heading [level=2]: "G. 추가 도구"
+    - list:
+      - listitem: "문서 파싱 및 OCR"
+      - listitem: "Embedding API"
+      - listitem: "로컬 Embedding 모델"
+      - listitem: "Reranking 서비스"
+      - listitem: "ETL 및 데이터 커넥터"
+      - listitem: "관측성과 RAG 평가 도구"
+    - text: "특정 도구를 반드시 포함하기보다 구축 난이도 감소에 기여하는지 평가하세요."
+    - heading [level=1]: "4. 평가 및 순위 선정"
+    - text: "모든 후보를 아래 기준으로 평가하세요."
+    - table: "항목 가중치 구축 편의성 및 Low-Code 적합성 25%기업 보안 및 문서 권한 통제 25%유지보수 및 운영 편의성 15%문서 커넥터 및 동기화 10%초기 비용 및 총소유비용 10%검색 품질 및 정확성 10%MCP / Skills / Agent 연동성 5%"
+    - text: "검증 가능한 근거가 있을 때만 점수를 부여하세요.정보가 부족한 항목은 미확인으로 표기하고, 보안상 필수 요구사항을 충족하지 못하는 후보는 높은 종합 점수와 무관하게 실제 운영 후보에서 제외하세요.기업용 Enterprise Vector RAG 구축 추천 TOP 5 를 선정하고, 각 후보에 대해 다음을 제공하세요."
+    - list:
+      - listitem: "권장 아키텍처"
+      - listitem: "예상 구축 시간과 전제 조건"
+      - listitem: "코딩 및 설정 난이도"
+      - listitem: "초기 비용과 운영 비용"
+      - listitem: "보안 및 권한 제어의 지원 범위"
+      - listitem: "장점과 한계"
+      - listitem: "가장 적합한 기업 환경"
+    - heading [level=1]: "5. 세 가지 구축 시나리오"
+    - text: "다음 세 가지에 대해 각각 가장 쉬운 방법을 제안하세요."
+    - heading [level=2]: "Scenario A: Fastest Enterprise RAG MVP"
+    - text: "목표:"
+    - list:
+      - listitem: "최소한의 설치"
+      - listitem: "실제 문서 업로드"
+      - listitem: "빠른 Vector Search"
+      - listitem: "LLM 기반 질의응답"
+      - listitem: "문서 출처 표시"
+    - text: "소규모의 접근 제한된 테스트 문서만 사용하고, 운영 수준 권한 통제가 없다면 실제 민감한 기업 문서를 투입하지 마세요."
+    - heading [level=2]: "Scenario B: Secure Enterprise RAG"
+    - text: "목표:"
+    - list:
+      - listitem: "실제 기업 문서 사용"
+      - listitem: "SSO"
+      - listitem: "문서 수준 ACL"
+      - listitem: "사용자별 권한 필터링"
+      - listitem: "감사 로그"
+      - listitem: "안전한 문서 동기화"
+      - listitem: "운영 모니터링"
+    - text: "이 시나리오를 기업 실사용을 위한 핵심 추천안으로 간주하세요."
+    - heading [level=2]: "Scenario C: Agentic Enterprise RAG"
+    - text: "목표:"
+    - list:
+      - listitem: "Enterprise RAG + MCP"
+      - listitem: "AI Agent / Skills 활용"
+      - listitem: "문서 검색 Tool 제공"
+      - listitem: "권한을 유지한 Agent 질의응답"
+      - listitem: "반복 작업 자동화"
+    - text: "MCP를 도입하는 것이 실제로 유리한 상황에만 권장하세요."
+    - heading [level=1]: "6. 최종 아키텍처 선정"
+    - text: "세 가지 시나리오를 비교한 뒤 다음을 각각 선정하세요."
+    - list:
+      - listitem: "가장 빨리 구축할 수 있는 MVP"
+      - listitem: "가장 쉽게 안전하게 운영할 수 있는 Enterprise RAG"
+      - listitem: "MCP 및 Agent 확장에 가장 적합한 RAG"
+    - text: "그중  기업에서 실제로 사용할 수 있으면서 구축과 운영이 가장 쉬운 방법을 최종 1순위 로 선정하세요.선정 근거와 포기해야 하는 기능 또는 비용상의 타협점을 명확히 설명하세요."
+    - heading [level=1]: "7. 실행 가능한 구축 튜토리얼"
+    - text: "최종 추천 솔루션을 대상으로 초보 개발자가 따라 할 수 있는 Low-Code 구축 가이드를 작성하세요.다음 순서를 따르세요."
+    - heading [level=3]: "Step 1. 설치 환경 준비"
+    - list:
+      - listitem: "계정 및 필수 도구"
+      - listitem: "Docker / Docker Compose 필요 여부"
+      - listitem: "클라우드 리소스"
+      - listitem: "API Key 및 Secret 준비"
+    - heading [level=3]: "Step 2. 시스템 배포"
+    - list:
+      - listitem: "설치 명령어"
+      - listitem: "Docker Compose 예시(필요한 경우)"
+      - listitem: "환경변수 예시"
+      - listitem: "서비스 실행 및 정상 상태 확인"
+    - heading [level=3]: "Step 3. 문서 연결"
+    - list:
+      - listitem: "파일 업로드"
+      - listitem: "내부 문서 저장소 연결"
+      - listitem: "동기화 및 삭제 정책"
+    - heading [level=3]: "Step 4. Vector RAG 구성"
+    - list:
+      - listitem: "파싱 및 Chunking"
+      - listitem: "Embedding 모델"
+      - listitem: "Vector DB"
+      - listitem: "검색 설정"
+      - listitem: "Reranking 필요 여부"
+    - heading [level=3]: "Step 5. LLM 연결"
+    - list:
+      - listitem: "모델 설정"
+      - listitem: "검색 문맥 전달"
+      - listitem: "근거 기반 응답"
+      - listitem: "출처 표시"
+    - heading [level=3]: "Step 6. 보안 구성"
+    - list:
+      - listitem: "사용자 인증"
+      - listitem: "SSO"
+      - listitem: "사용자 및 부서 권한"
+      - listitem: "문서 수준 ACL"
+      - listitem: "비밀 정보 및 데이터 전달 정책"
+    - heading [level=3]: "Step 7. 테스트"
+    - list:
+      - listitem: "테스트 문서 인덱싱"
+      - listitem: "질문 및 검색"
+      - listitem: "출처 정확도 확인"
+      - listitem: "권한 없는 문서 접근 차단"
+      - listitem: "데이터 삭제 후 검색 차단"
+      - listitem: "검색 실패 상황 테스트"
+    - heading [level=3]: "Step 8. 운영 준비"
+    - list:
+      - listitem: "백업"
+      - listitem: "로그"
+      - listitem: "사용량 모니터링"
+      - listitem: "비용 관리"
+      - listitem: "장애 대응"
+    - text: "명령어와 설정값은 공식 문서로 검증한 것만 사용하세요.실제 구축을 수행할 수 없는 환경이라면 구축 완료를 주장하지 말고 재현 가능한 절차와 검증 명령어를 제공하세요."
+    - heading [level=1]: "8. MCP 및 Agent Skills 통합"
+    - text: "추천 RAG를 AI Agent에서 활용하기 위한 최소 구성 방법을 제안하세요.다음 항목을 포함하세요."
+    - list:
+      - listitem: "RAG 검색 API를 MCP Tool로 제공하는 구조"
+      - listitem: "MCP Server 필요 여부"
+      - listitem: "Agent가 문서를 검색하는 흐름"
+      - listitem: "사용자 인증 및 권한 전파"
+      - listitem: "Tool 사용 권한 제한"
+      - listitem: "읽기 전용 기본 정책"
+      - listitem: "Prompt Injection 및 데이터 유출 방어"
+      - listitem: "AI Coding Agent를 이용한 구축 자동화"
+    - text: "직접 구축하는 방식과 MCP·Skills를 사용하는 방식을 비교하여 실제로 줄어드는 작업과 추가되는 복잡성을 평가하세요."
+    - heading [level=1]: "9. 실제 운영 전 필수 검증"
+    - text: "최소 다음 테스트를 정의하세요."
+    - list:
+      - listitem: "정상 권한 사용자가 허용된 문서를 검색할 수 있는가?"
+      - listitem: "권한이 없는 사용자가 다른 부서 문서를 검색할 수 없는가?"
+      - listitem: "인용된 출처가 실제 검색 문서와 일치하는가?"
+      - listitem: "문서 삭제 및 권한 변경이 검색 결과에 반영되는가?"
+      - listitem: "근거가 없을 때 허위 답변을 생성하지 않는가?"
+      - listitem: "문서에 삽입된 악의적 지시를 실행하지 않는가?"
+      - listitem: "사용자·문서·검색 이력을 적절하게 감사할 수 있는가?"
+      - listitem: "인덱싱 실패와 API 오류가 감지되는가?"
+    - text: "문서 권한 우회 가능성이 남아 있다면 해당 시스템을 Enterprise 운영 준비 완료로 판단하지 마세요."
+    - heading [level=1]: "10. 최종 응답 형식"
+    - text: "다음 순서로 작성하세요."
+    - heading [level=2]: "Part 1. Executive Summary"
+    - list:
+      - listitem: "가장 추천하는 Enterprise RAG 솔루션"
+      - listitem: "선정 이유"
+      - listitem: "예상 구축 시간"
+      - listitem: "예상 비용"
+      - listitem: "구현 난이도"
+      - listitem: "운영 적합성"
+    - heading [level=2]: "Part 2. 최신 기술 환경"
+    - list:
+      - listitem: "No-Code / Low-Code"
+      - listitem: "Vector DB"
+      - listitem: "Managed RAG"
+      - listitem: "MCP"
+      - listitem: "Agent Skills"
+      - listitem: "AI Coding Tools"
+    - heading [level=2]: "Part 3. 추천 TOP 5"
+    - list:
+      - listitem: "비교표"
+      - listitem: "점수 또는 검증된 상대 평가"
+      - listitem: "적합한 기업 환경"
+    - heading [level=2]: "Part 4. 최종 추천 아키텍처"
+    - list:
+      - listitem: "MVP"
+      - listitem: "Secure Enterprise"
+      - listitem: "Agentic Enterprise"
+      - listitem: "Mermaid 아키텍처 다이어그램"
+    - heading [level=2]: "Part 5. 단계별 설치 및 구축 가이드"
+    - list:
+      - listitem: "실제 명령어"
+      - listitem: "설정 예시"
+      - listitem: "문서 검색 테스트"
+    - heading [level=2]: "Part 6. 보안 및 권한 구성"
+    - list:
+      - listitem: "SSO"
+      - listitem: "RBAC / ACL"
+      - listitem: "문서 권한 동기화"
+      - listitem: "데이터 보호"
+      - listitem: "감사 로그"
+    - heading [level=2]: "Part 7. MCP / Skills / Tool 확장"
+    - list:
+      - listitem: "권장 구성"
+      - listitem: "도입 이점과 비용"
+      - listitem: "Agent 자동화 방법"
+    - heading [level=2]: "Part 8. 운영 체크리스트"
+    - list:
+      - listitem: "테스트"
+      - listitem: "모니터링"
+      - listitem: "백업"
+      - listitem: "배포 전 승인 조건"
+    - heading [level=2]: "Part 9. 비용 및 확장 로드맵"
+    - list:
+      - listitem: "PoC / MVP"
+      - listitem: "소규모 사내 운영"
+      - listitem: "전사 확대"
+      - listitem: "비용 증가 요인"
+    - heading [level=2]: "Part 10. 공식 참고 자료"
+    - list:
+      - listitem: "공식 홈페이지"
+      - listitem: "공식 문서"
+      - listitem: "GitHub"
+      - listitem: "확인된 지원 기능"
+      - listitem: "가격 정보"
+      - listitem: "확인 날짜"
+    - heading [level=1]: "11. 반드시 지킬 원칙"
+    - list:
+      - listitem: "쉽게 만드는 것을 우선하되 기업 보안을 희생하지 마세요."
+      - listitem: "보안 기능의 지원 여부뿐 아니라 실제 적용 조건과 라이선스 제한을 확인하세요."
+      - listitem: "기술적으로 가능하다는 사실과 기본 제공된다는 사실을 구분하세요."
+      - listitem: "공식적으로 제공하는 기능과 별도 커스텀 개발이 필요한 기능을 구분하세요."
+      - listitem: "코드를 최소화하되 권한 검증에 필요한 부분은 생략하지 마세요."
+      - listitem: "MCP, Skills, AI Agent가 불필요하다면 과감히 제외하세요."
+      - listitem: "비용과 구축 시간은 전제 조건을 명시한 추정치로 제시하세요."
+      - listitem: "현재 날짜 기준 최신 정보를 확인하고, 확인되지 않은 사항은 명시하세요."
+      - listitem: "사소한 선택지를 나열하기보다 실제로 도입 가능한 최종 결론을 제공하세요."
+      - listitem: "구축 결과가 아니라 단순 설계·가이드인 경우 실제 구현 완료로 표현하지 마세요."
+    - heading [level=1]: "최종 목표"
+    - text: "기업의 IT 담당자 또는 초보 개발자가 이 가이드만으로 최소한의 코딩을 통해 내부 문서 검색 RAG를 구축하고, 문서 권한과 데이터 보안을 검증한 뒤, 필요하면 MCP와 AI Agent까지 확장할 수 있도록 하세요.이론보다 실제 실행을 우선하고, 최종적으로 가장 간단한 안전한 아키텍처 하나를 분명하게 추천하세요."
+  - heading "이번 최적화에서 달라진 점" [level=2]
+  - table: "기준 개인용 RAG 기업용 RAG 최적화 최우선 목표 빠른 개인 문서 검색 간편한 구축 + 기업 보안 구축 방식 단일 사용자 중심 Low-Code + 조직 권한 데이터 접근 일반 문서 업로드 사내 저장소 + ACL 인증 간단한 로그인 SSO / RBAC 검색 Vector Search 중심 권한 필터 + Vector / Hybrid MCP / Skills 편의성 중심 권한 유지 및 업무 자동화 운영 개인 사용 모니터링·감사·백업 성공 조건 질문에 답변 가능 권한에 맞는 정확한 답변"
+  - text: "핵심 개선점: 단순히 가장 빨리 작동하는 RAG와 실제 기업 문서를 안전하게 다룰 수 있는 RAG를 분리해 평가하도록 만들었습니다.이 프롬프트는 특히  Dify, n8n, Qdrant, pgvector, 관리형 클라우드 RAG, MCP 기반 Agent 시스템  중 어떤 조합이 가장 쉬우면서도 기업 환경에 적합한지 판단하고, 최종적으로 구축 절차까지 도출하는 데 적합합니다."
+  - button "복사" [ref=e101]
+  - button "소리 내어 읽기" [ref=e102]
+  - button "응답 다시 생성" [ref=e103]
+  - button "추가 액션" [ref=e104]
+  - text: "ChatGPT는 실수할 수 있습니다. 중요한 정보는 확인하세요."
+  - heading "최신 응답" [ref=e105] [level=4]
+  - status
+  - form:
+    - button "파일 등 추가" [ref=e106]
+    - textbox "ChatGPT에게 물어보세요" [ref=e107] [focused]
+    - button "ChatGPT 모델 선택" [ref=e108]: "Medium"
+    - button "음성 입력" [ref=e109]
+    - button "보내기" [ref=e110] [disabled]

@@ -1,0 +1,81 @@
+CANONICAL_URL https://chatgpt.com/g/g-p-6ab1ec90d2048191923833b6b5d8b71e-llm-gucug/c/6acc43f1-7284-83ee-9b5d-fb5e68ab5142
+- title: "온톨로지 팩 제공 request" [url=https://chatgpt.com/g/g-p-6ab1ec90d2048191923833b6b5d8b71e-llm-gucug/c/6acc43f1-7284-83ee-9b5d-fb5e68ab5142]
+- region "대화" [ref=e92] [scrollable]:
+  - separator "오늘 오전 11:20": "오늘  오전 11:20"
+  - text: "OpenCrab에 실제로 등록된 온톨로지 팩과 참고 자료를 확인한 뒤, Vector RAG와 Graph RAG를 구축할 때 부족한 도메인 지식을 어떤 순서로 보완하면 좋을지 정리하겠습니다. 특히 사내 제안서 작성용 RAG에 적용할 수 있는 내용을 우선하겠습니다.OpenCrab에서 제안서 작성용 팩과 실제 제안서 원본 팩을 확인했습니다. 특히 한 제안서 팩은 벡터 인덱스가 충실한 반면, 온톨로지의 9개 영역 중 3개만 사용하고 있어 Vector RAG와 Graph RAG의 품질을 구분해서 공부하기 좋은 사례입니다."
+  - heading "Vector RAG · Graph RAG 구축을 위한 도메인 지식 학습 가이드" [level=1]
+  - text: "추천 방향은 OpenCrab의 기존 온톨로지 팩을 학습 사례로 활용하면서, Vector RAG를 먼저 구현하고 Graph RAG로 확장하는 것입니다.현재 목표가 사내 LLM(Qwen3:8B)을 활용한 IT 제안서 작성 지원 시스템이고, Codex를 통해 구현할 계획이라는 점을 고려했습니다."
+  - heading "1. 먼저 알아야 할 도메인 지식" [level=2]
+  - text: "RAG를 구축하기 위해 모든 AI 이론을 공부할 필요는 없습니다. 다음 5개 영역을 우선 학습하는 것이 효율적입니다.특히  도메인 지식에는 두 종류가 있다는 점 이 중요합니다."
+  - list:
+    - listitem: "기술 도메인 지식: RAG, LLM, 그래프 DB, 검색 알고리즘에 대한 이해"
+    - listitem: "업무 도메인 지식: RFP, 요구사항, 제안서 목차, 유사사업, 제안 평가 기준 등에 대한 이해"
+  - text: "IT 제안서 작성 시스템은 이 두 영역을 함께 이해해야 정확하게 설계할 수 있습니다."
+  - heading "2. Vector RAG와 Graph RAG의 차이" [level=2]
+  - text: "Vector RAG — 의미가 유사한 문서 검색 질문: \"서버 이중화 구축 사례는?\"질문 Embedding → 벡터 검색 유사사업 제안서 A 시스템 구성 문서 B Graph RAG — 개체 간 관계 탐색 실제 구축 데이터를 나타내는 것이 아닌 개념 설명용 예시입니다.예를 들어 제안서의 \"서버 이중화 구성 방안\"을 작성할 때 Vector RAG는 유사한 내용을 가진 과거 제안서 문단을 찾고, Graph RAG는 해당 요구사항과 관련된 기술·제품·구축 사례·증빙 문서 사이의 연결 관계를 탐색하는 역할을 수행할 수 있습니다.두 기술을 결합한 Hybrid RAG도 가능하지만, 반드시 둘 다 구축해야 하는 것은 아닙니다. 검색 질문과 문서 특성을 기준으로 필요성을 검증하는 것이 우선입니다."
+  - button "복사" [ref=e93]
+  - button "공유" [ref=e94]
+  - button "소리 내어 읽기" [ref=e95]
+  - button "응답 다시 생성" [ref=e96]
+  - button "추가 액션" [ref=e97]
+  - button "1m 14s 동안 처리함" [ref=e98]
+  - heading "OpenCrab에서 현재 사용할 수 있는 추천 온톨로지 팩" [level=1]
+  - text: "2026년 10월 12일 기준, OpenCrab에서 실제로 조회되는 팩을 확인했으며, 주요 팩에 대해서는 품질 평가(QA)도 실행했습니다.현재 목적에 맞춰  우선 추천하는 팩은 6개 입니다."
+  - heading "1. 추천 온톨로지 팩 TOP 6" [level=2]
+  - text: "QA 점수는 OpenCrab 자체 평가 결과이며, 실제 RAG 답변 정확도나 전체 도메인 지식의 정확성을 보장하지 않습니다."
+  - heading "2. 특히 추천하는 3개 팩 상세 정보" [level=2]
+  - text: "① 비개발자를 위한 개발의 정석 QA A · 100점 코딩 에이전트를 활용한 개발 과정에서 데이터, 검증, 권한, 운영 등을 관리하는 GraphRAG 지식 팩입니다.확인된 구성: 문서 1개, 청크 399개, 노드 1,397개, 관계 4,677개(스냅샷 기준)추천 이유: Entity와 Relation, 원문 근거를 연결하는 방식을 이해하는 사례로 적합합니다. 다만 QA 점수만으로 개별 관계의 의미적 정확성까지 검증된 것은 아닙니다.② company-proposal QA A · 100점 RFP 요구사항과 평가 기준, 제안 대응, 근거자료, 제안서 섹션을 연결하는 팩입니다.추천 이유: 현재 구축하려는 사내 제안서용 Graph RAG의 업무 스키마를 설계할 때 가장 직접적인 참고 사례입니다.주의: 현재 확인된 그래프 구성은 노드 13개, 관계 12개이며, OpenCrab 9개 공간 중 2개만 사용합니다. 완성된 업무용 GraphRAG로 간주해서는 안 됩니다.③ n8n guide pack QA A · 100점 공식 n8n 문서를 수집해 생성한 온톨로지 팩입니다.추천 이유: 향후 RFP 업로드, 문서 처리, 검색 인덱스 갱신, 결과 저장 등의 자동화 프로세스를 구현할 때 참고할 수 있습니다.확인된 구성: 문서 13개, 청크 58개, 벡터 커버리지 표본 100%. 공식 n8n 문서 전체를 포괄한다고 확인된 것은 아닙니다."
+  - heading "3. 사용 시 주의해야 할 팩" [level=2]
+  - text: "제안서 작성 온톨로지 는 이름과 목적은 가장 잘 맞지만, 현재 QA에서 C등급(70점)을 받았습니다.검증 결과 다음 문제가 확인됐습니다."
+  - list:
+    - listitem: "벡터 임베딩 커버리지 표본 약 37.7%"
+    - listitem: "실질적인 텍스트가 부족한 청크 존재"
+    - listitem: "일부 문서와 Evidence 청크의 연결 누락 가능성"
+    - listitem: "OpenCrab 9개 온톨로지 공간 중 2개만 활용"
+  - text: "따라서 이 팩은 업무 용어와 구조를 참고하는 용도로 활용하고, 실제 RAG의 핵심 근거 데이터로 사용하기 전에는 품질 개선을 권장합니다."
+  - heading "4. 추천 학습 및 활용 순서" [level=2]
+  - list:
+    - listitem: "비개발자를 위한 개발의 정석 문서, 청크, 그래프 노드, 관계, 출처 구조를 확인합니다."
+    - listitem: "company-proposal 제안요청서 요구사항과 제안서 작성 지식의 관계를 설계합니다."
+    - listitem: "n8n guide pack 문서 수집 및 데이터 갱신 자동화 방법을 학습합니다."
+    - listitem: "직접 구현하는 Vector RAG 사내 제안서 일부를 대상으로 검색 및 출처 반환 기능을 구현합니다."
+    - listitem: "Graph RAG 확장과 성능 비교 요구사항·기술·실적 관계를 그래프로 구성하고 Vector RAG 단독 결과와 비교합니다."
+  - text: "OpenCrab 팩은 참고 지식과 설계 사례로 사용할 수 있지만, 그 자체를 Neo4j나 별도 Vector DB의 실행 가능한 인덱스로 즉시 가져올 수 있다는 점까지 검증한 것은 아닙니다."
+  - heading "5. OpenCrab에서 팩 내용 확인하기" [level=2]
+  - text: "아래 항목을 선택하면 해당 팩을 대상으로 구체적인 구조, 근거와 학습할 내용을 조사할 수 있습니다.심층 분석할 온톨로지 팩"
+  - radiogroup "Options" [ref=e99]:
+    - label [ref=e100]:
+      - radio [ref=e101] [checked]
+      - text: "비개발자를 위한 개발의 정석"
+    - label [ref=e102]:
+      - radio [ref=e103]
+      - text: "company-proposal"
+    - label [ref=e104]:
+      - radio [ref=e105]
+      - text: "제안서 평가 방법"
+    - label [ref=e106]:
+      - radio [ref=e107]
+      - text: "n8n guide pack"
+    - label [ref=e108]:
+      - radio [ref=e109]
+      - text: "Nutrition / Diet Evidence Ontology v1.1.0 ontology pack"
+    - label [ref=e110]:
+      - radio [ref=e111]
+      - text: "제안서 작성 온톨로지"
+  - button "선택한 팩 구조 및 활용 방법 분석" [ref=e112]
+  - text: "결론: 현재는  비개발자를 위한 개발의 정석 으로 RAG 구조를 익히고  company-proposal 로 제안서 업무 모델을 학습하는 조합을 가장 추천합니다. 이후 직접 구축하는 Vector RAG에 필요한 관계 구조만 추가하여 Graph RAG로 확장하는 것이 효율적입니다."
+  - button "복사" [ref=e113]
+  - button "공유" [ref=e114]
+  - button "프로젝트 소스에 추가" [ref=e115]
+  - button "소리 내어 읽기" [ref=e116]
+  - button "응답 다시 생성" [ref=e117]
+  - button "추가 액션" [ref=e118]
+  - text: "ChatGPT는 실수할 수 있습니다. 중요한 정보는 확인하세요."
+  - heading "최신 응답" [ref=e119] [level=4]
+  - status
+  - form:
+    - button "파일 등 추가" [ref=e120]
+    - textbox "ChatGPT에게 물어보세요" [ref=e121] [focused]
+    - button "ChatGPT 모델 선택" [ref=e122]: "Medium"
+    - button "음성 입력" [ref=e123]
+    - button "음성 대화 시작" [ref=e124]

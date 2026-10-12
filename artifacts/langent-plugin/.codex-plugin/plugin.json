@@ -1,0 +1,36 @@
+{
+  "interface": {
+    "developerName": "AlexAI-MCP",
+    "displayName": "Langent MCP One-Click Kit",
+    "capabilities": [
+      "MCP"
+    ],
+    "longDescription": "Connects Codex to AlexAI-MCP/langent v3 for local document ingestion, hybrid vector and graph RAG, LangGraph reasoning, Cypher queries, and 3D knowledge-nebula data.",
+    "shortDescription": "Use AlexAI-MCP/langent v3 knowledge tools in Codex.",
+    "defaultPrompt": [
+      "Check my Langent knowledge-base status.",
+      "Ingest documents from a folder into Langent.",
+      "Search my Langent knowledge base with hybrid RAG.",
+      "Analyze connected concepts with the Langent graph."
+    ],
+    "category": "Productivity"
+  },
+  "mcpServers": "./.mcp.json",
+  "description": "Codex MCP plugin for the official AlexAI-MCP/langent v3 runtime.",
+  "version": "0.1.0+codex.20260727092235",
+  "author": {
+    "name": "AlexAI-MCP / Local Codex wrapper",
+    "url": "https://github.com/AlexAI-MCP/langent"
+  },
+  "name": "langent-mcp-one-click-kit",
+  "homepage": "https://github.com/AlexAI-MCP/langent",
+  "repository": "https://github.com/AlexAI-MCP/langent",
+  "license": "Apache-2.0",
+  "keywords": [
+    "langent",
+    "mcp",
+    "rag",
+    "knowledge-base",
+    "windows"
+  ]
+}

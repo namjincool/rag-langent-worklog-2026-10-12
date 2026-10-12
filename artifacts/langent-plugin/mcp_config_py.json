@@ -1,0 +1,16 @@
+{
+    "mcpServers":  {
+                       "langent":  {
+                                       "args":  [
+                                                    "-m",
+                                                    "langent.server.mcp_server"
+                                                ],
+                                       "env":  {
+                                                   "LANGENT_WORKSPACE":  "C:\\Users\\Public\\Documents\\ESTsoft\\CreatorTemp\\langent-mcp-one-click-kit-runtime\\workspace",
+                                                   "PYTHONUTF8":  "1",
+                                                   "PYTHONIOENCODING":  "utf-8"
+                                               },
+                                       "command":  "C:\\Users\\Public\\Documents\\ESTsoft\\CreatorTemp\\langent-mcp-one-click-kit-runtime\\venv\\Scripts\\python.exe"
+                                   }
+                   }
+}

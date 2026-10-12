@@ -1,0 +1,50 @@
+{
+  "document": "(′26년 KNCCS 노후 네트워크장비 교체사업) 정성제안서_원본_1권.md",
+  "project": "′26년 KNCCS 노후 네트워크장비 교체사업",
+  "vector_count": 834,
+  "document_chunks_linked": 834,
+  "semantic_entities": 22,
+  "chunk_entity_mentions": 763,
+  "semantic_relations": 26,
+  "graph_schema": {
+    "labels": [
+      "Document",
+      "Chunk",
+      "Project",
+      "Goal",
+      "Equipment",
+      "Scope",
+      "Strategy",
+      "Requirement",
+      "Outcome"
+    ],
+    "relationship_types": [
+      "DESCRIBES",
+      "HAS_GOAL",
+      "REPLACES",
+      "COVERS",
+      "ACHIEVED_BY",
+      "VERIFIED_BY",
+      "REQUIRES",
+      "APPLIES_TO",
+      "SUPPORTED_BY",
+      "SERVES",
+      "LEADS_TO",
+      "ENABLES",
+      "HAS_CHUNK",
+      "MENTIONS"
+    ],
+    "node_counts": {
+      "Document": 1,
+      "Project": 1,
+      "Goal": 4,
+      "Equipment": 2,
+      "Scope": 1,
+      "Strategy": 7,
+      "Requirement": 3,
+      "Outcome": 4,
+      "Chunk": 834
+    }
+  },
+  "neo4j_connected": true
+}

@@ -1,0 +1,181 @@
+{
+  "collected_at_utc": "2026-10-12T11:32:46.592955+00:00",
+  "scanned_session_logs": 583,
+  "keyword_candidate_sessions": 19,
+  "additional_final_response_candidates": 1,
+  "included_sessions": [
+    {
+      "session_id": "019ed358-5ee2-7ee3-a13e-afc59ee6f547",
+      "source_log": "2026/06/17/rollout-2026-06-17T11-10-44-019ed358-5ee2-7ee3-a13e-afc59ee6f547.jsonl",
+      "source_file_sha256_at_collection": "af626244c1dcd18feec9ebcb8ac0999c278fa80eddafded0bfd014b253a1344a",
+      "first_timestamp": "2026-06-17T02:10:49.773Z",
+      "last_timestamp": "2026-06-17T09:03:51.873Z",
+      "messages": 14,
+      "source_line_start": 6,
+      "source_line_end": 456,
+      "markdown": "evidence/codex/019ed358-5ee2-7ee3-a13e-afc59ee6f547.md"
+    },
+    {
+      "session_id": "019ed4dd-f2a4-7af1-b88a-1379abe9b5ca",
+      "source_log": "2026/06/17/rollout-2026-06-17T18-16-15-019ed4dd-f2a4-7af1-b88a-1379abe9b5ca.jsonl",
+      "source_file_sha256_at_collection": "3e7f320b86fb881cbae6835cb0ff26cce0bb72cca2128d6a7d53e03488ecd4fe",
+      "first_timestamp": "2026-06-17T09:16:53.146Z",
+      "last_timestamp": "2026-06-17T09:17:44.159Z",
+      "messages": 2,
+      "source_line_start": 6,
+      "source_line_end": 22,
+      "markdown": "evidence/codex/019ed4dd-f2a4-7af1-b88a-1379abe9b5ca.md"
+    },
+    {
+      "session_id": "019eed81-d4cf-7b00-9176-06b6a465f91b",
+      "source_log": "2026/06/22/rollout-2026-06-22T13-06-09-019eed81-d4cf-7b00-9176-06b6a465f91b.jsonl",
+      "source_file_sha256_at_collection": "316d82e61868045e8960f598b906924ffa210f8ea5e52792bfa3048640efab4f",
+      "first_timestamp": "2026-06-22T04:06:45.324Z",
+      "last_timestamp": "2026-06-22T04:07:11.815Z",
+      "messages": 2,
+      "source_line_start": 7,
+      "source_line_end": 20,
+      "markdown": "evidence/codex/019eed81-d4cf-7b00-9176-06b6a465f91b.md"
+    },
+    {
+      "session_id": "019f16cd-d911-7c03-ab1c-18a7814472e4",
+      "source_log": "2026/06/30/rollout-2026-06-30T13-33-37-019f16cd-d911-7c03-ab1c-18a7814472e4.jsonl",
+      "source_file_sha256_at_collection": "f70666864858d07e1384bb46bf7b30f3bd708279167d8c70fc6ab3e2d82c3ebf",
+      "first_timestamp": "2026-06-30T10:26:48.782Z",
+      "last_timestamp": "2026-06-30T11:15:36.216Z",
+      "messages": 8,
+      "source_line_start": 152,
+      "source_line_end": 348,
+      "markdown": "evidence/codex/019f16cd-d911-7c03-ab1c-18a7814472e4.md"
+    },
+    {
+      "session_id": "019f1861-a975-7462-bf10-ed92edf3637a",
+      "source_log": "2026/06/30/rollout-2026-06-30T20-54-41-019f1861-a975-7462-bf10-ed92edf3637a.jsonl",
+      "source_file_sha256_at_collection": "84857d864d6b0c8659e55036bb5fdb9aeddc95014d5622cbd7cd56233cc859ba",
+      "first_timestamp": "2026-06-30T11:54:57.593Z",
+      "last_timestamp": "2026-06-30T12:08:59.965Z",
+      "messages": 2,
+      "source_line_start": 6,
+      "source_line_end": 239,
+      "markdown": "evidence/codex/019f1861-a975-7462-bf10-ed92edf3637a.md"
+    },
+    {
+      "session_id": "019f25a4-9b89-7072-942e-98822c81f68f",
+      "source_log": "2026/07/03/rollout-2026-07-03T10-42-53-019f25a4-9b89-7072-942e-98822c81f68f.jsonl",
+      "source_file_sha256_at_collection": "8ab3228b82f9f6be664e02dfa5eabb30952dbbda21bb4f2ae840dc2dc9f81bb3",
+      "first_timestamp": "2026-07-03T01:45:13.991Z",
+      "last_timestamp": "2026-07-03T04:13:07.051Z",
+      "messages": 8,
+      "source_line_start": 6,
+      "source_line_end": 145,
+      "markdown": "evidence/codex/019f25a4-9b89-7072-942e-98822c81f68f.md"
+    },
+    {
+      "session_id": "019fa202-9ba6-7e50-bdd3-3aebc65f45a0",
+      "source_log": "2026/07/27/rollout-2026-07-27T14-18-27-019fa202-9ba6-7e50-bdd3-3aebc65f45a0.jsonl",
+      "source_file_sha256_at_collection": "c8f2da6c31d44f168c7008c7f407b34ea9265d2ef24ea3640c87c612afd0d890",
+      "first_timestamp": "2026-07-27T09:18:28.169Z",
+      "last_timestamp": "2026-07-27T09:24:12.982Z",
+      "messages": 4,
+      "source_line_start": 781,
+      "source_line_end": 895,
+      "markdown": "evidence/codex/019fa202-9ba6-7e50-bdd3-3aebc65f45a0.md"
+    },
+    {
+      "session_id": "019fa2e4-8717-70b2-9cf1-12063addb34f",
+      "source_log": "2026/07/27/rollout-2026-07-27T18-25-13-019fa2e4-8717-70b2-9cf1-12063addb34f.jsonl",
+      "source_file_sha256_at_collection": "e24f31487b2f94185ea70f0ff17a077c7ae0b38e539f3e524d91a7b5aa8eb4ae",
+      "first_timestamp": "2026-07-27T09:25:47.088Z",
+      "last_timestamp": "2026-07-27T09:31:49.880Z",
+      "messages": 8,
+      "source_line_start": 10,
+      "source_line_end": 147,
+      "markdown": "evidence/codex/019fa2e4-8717-70b2-9cf1-12063addb34f.md"
+    },
+    {
+      "session_id": "019fa2ed-8f3f-7b13-953e-bc733c3ec874",
+      "source_log": "2026/07/27/rollout-2026-07-27T18-35-05-019fa2ed-8f3f-7b13-953e-bc733c3ec874.jsonl",
+      "source_file_sha256_at_collection": "dc0f35d0699f384c3ad21806405e9aab75e0c12210501d4c843321da7d188933",
+      "first_timestamp": "2026-07-27T09:35:37.300Z",
+      "last_timestamp": "2026-07-27T09:36:25.946Z",
+      "messages": 2,
+      "source_line_start": 9,
+      "source_line_end": 39,
+      "markdown": "evidence/codex/019fa2ed-8f3f-7b13-953e-bc733c3ec874.md"
+    },
+    {
+      "session_id": "019fa65e-55be-76d0-84d8-f85bef24ffe2",
+      "source_log": "2026/07/28/rollout-2026-07-28T10-37-08-019fa65e-55be-76d0-84d8-f85bef24ffe2.jsonl",
+      "source_file_sha256_at_collection": "a9c1dede6550585047b0100f027c1e5077b8a84f033f305949789dce896d91b9",
+      "first_timestamp": "2026-07-28T01:45:48.528Z",
+      "last_timestamp": "2026-07-28T02:13:38.803Z",
+      "messages": 6,
+      "source_line_start": 75,
+      "source_line_end": 374,
+      "markdown": "evidence/codex/019fa65e-55be-76d0-84d8-f85bef24ffe2.md"
+    },
+    {
+      "session_id": "01a0a7c1-d93a-73e1-b7c4-5b630e7eb1c7",
+      "source_log": "2026/09/16/rollout-2026-09-16T10-08-14-01a0a7c1-d93a-73e1-b7c4-5b630e7eb1c7.jsonl",
+      "source_file_sha256_at_collection": "53fc8b90b1f212783b0015dc6b3900d05b97ec6d5de3b344718aa0fe0a75ffe0",
+      "first_timestamp": "2026-09-16T01:10:39.054Z",
+      "last_timestamp": "2026-09-16T04:07:45.716Z",
+      "messages": 8,
+      "source_line_start": 9,
+      "source_line_end": 191,
+      "markdown": "evidence/codex/01a0a7c1-d93a-73e1-b7c4-5b630e7eb1c7.md"
+    },
+    {
+      "session_id": "01a0b7d7-2664-7fe2-af60-2b6cf572da70",
+      "source_log": "2026/09/19/rollout-2026-09-19T13-05-25-01a0b7d7-2664-7fe2-af60-2b6cf572da70.jsonl",
+      "source_file_sha256_at_collection": "97b34deeacee58f01a021c6b7303548024bb621e47cab41cbb2533a5888557a8",
+      "first_timestamp": "2026-09-19T04:06:01.903Z",
+      "last_timestamp": "2026-09-19T04:08:46.580Z",
+      "messages": 6,
+      "source_line_start": 9,
+      "source_line_end": 83,
+      "markdown": "evidence/codex/01a0b7d7-2664-7fe2-af60-2b6cf572da70.md"
+    },
+    {
+      "session_id": "01a0c707-1c61-7543-8487-42bfb4d9ab4d",
+      "source_log": "2026/09/22/rollout-2026-09-22T11-52-07-01a0c707-1c61-7543-8487-42bfb4d9ab4d.jsonl",
+      "source_file_sha256_at_collection": "5fcccc53b7a26aadeb1c3dcb9bb9bd6b7a8aa5d60cf678662c0b970c81bfd907",
+      "first_timestamp": "2026-09-22T02:52:11.059Z",
+      "last_timestamp": "2026-09-22T03:04:19.313Z",
+      "messages": 4,
+      "source_line_start": 7,
+      "source_line_end": 154,
+      "markdown": "evidence/codex/01a0c707-1c61-7543-8487-42bfb4d9ab4d.md"
+    },
+    {
+      "session_id": "01a12f14-af69-7d93-8032-e0303e918e90",
+      "source_log": "2026/10/12/rollout-2026-10-12T16-47-27-01a12f14-af69-7d93-8032-e0303e918e90.jsonl",
+      "source_file_sha256_at_collection": "7d761e86fe39c38ccebaa2406466eb0953a6adf28c0718ddc33f99ab1e6050cb",
+      "first_timestamp": "2026-10-12T07:47:32.087Z",
+      "last_timestamp": "2026-10-12T10:50:28.596Z",
+      "messages": 16,
+      "source_line_start": 12,
+      "source_line_end": 688,
+      "markdown": "evidence/codex/01a12f14-af69-7d93-8032-e0303e918e90.md"
+    },
+    {
+      "session_id": "019fd116-b3a7-7ba0-a355-66277226a69c",
+      "source_log": "2026/08/05/rollout-2026-08-05T17-42-33-019fd116-b3a7-7ba0-a355-66277226a69c.jsonl",
+      "source_file_sha256_at_collection": "bb0d11de34c35906d739f5e306d1a2146f9e72b87c8aedf8210d0d8216a00de6",
+      "first_timestamp": "2026-08-05T08:42:56.199Z",
+      "last_timestamp": "2026-08-05T08:43:25.257Z",
+      "messages": 2,
+      "source_line_start": 7,
+      "source_line_end": 29,
+      "markdown": "evidence/codex/019fd116-b3a7-7ba0-a355-66277226a69c.md"
+    }
+  ],
+  "excluded_candidates": {
+    "019fac9f-52a3-7cd0-a567-aae0c48da400": "Ollama를 사용한 별도 앱 작업으로 RAG 또는 Langent 연결 근거가 없음",
+    "019e968b-faf4-7b32-b7df-320f1ed937f1": "범용 OpenCrab 온톨로지 팩 작성; RAG/Langent 직접 작업으로 확인되지 않음",
+    "019ea637-8978-76f0-b61d-5bb56262303c": "범용 RFP 온톨로지 팩 작성; RAG/Langent 직접 작업으로 확인되지 않음",
+    "019ec897-f904-76a0-b188-e1088f368ad6": "범용 온톨로지 중복 엣지 정리; RAG/Langent 직접 작업으로 확인되지 않음",
+    "019fb205-33d4-7e42-971a-fd72b9a024dc": "별도 온톨로지 작성 요청; RAG/Langent 직접 작업으로 확인되지 않음"
+  },
+  "redactions": []
+}

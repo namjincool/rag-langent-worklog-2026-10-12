@@ -1,0 +1,77 @@
+{
+  "collected_at_utc": "2026-10-12T11:35:28.845362+00:00",
+  "conversation_count": 9,
+  "sources": [
+    {
+      "title": "RAG 구축 순서와 내용",
+      "url": "https://chatgpt.com/g/g-p-6ab1ec90d2048191923833b6b5d8b71e-llm-gucug/c/6acb4c40-c3fc-83e8-b13d-ed3c4da12059",
+      "snapshot": "evidence/chatgpt/rag-sequence-conversation.snapshot.txt",
+      "sha256": "93141c47c19db6b13302e32b3ed48965184965f9b03c3eda21b4ab2b62c8d019",
+      "capture_kind": "web accessibility conversation snapshot; not full account export"
+    },
+    {
+      "title": "프롬프트 개선 RAG 구축",
+      "url": "https://chatgpt.com/g/g-5XtVuRE8Y-prompt-engineer/c/6accb06a-5e54-83ee-a5a8-22583abb5e60",
+      "snapshot": "evidence/chatgpt/enterprise-rag-prompt.snapshot.txt",
+      "sha256": "3a3778296f273ed16051cc6bd329240bb53fd78972b53672c65afbc1c7805276",
+      "capture_kind": "web accessibility conversation snapshot; not full account export"
+    },
+    {
+      "title": "로컬 LLM 구축안",
+      "url": "https://chatgpt.com/g/g-p-6ab1ec90d2048191923833b6b5d8b71e-llm-gucug/c/6ab1ed12-93d8-83e8-87e5-be5fd71e8e53",
+      "snapshot": "evidence/chatgpt/local-llm.snapshot.txt",
+      "sha256": "6033dd2030946ba5a518417cf7f685fb8b43a84f740bc2b57c0d830b71f87551",
+      "capture_kind": "web accessibility conversation snapshot; not full account export"
+    },
+    {
+      "title": "파인튜닝과 데이터 우선순위",
+      "url": "https://chatgpt.com/g/g-p-6ab1ec90d2048191923833b6b5d8b71e-llm-gucug/c/6acc7ec3-3e74-83ec-80e4-404f100cd803",
+      "snapshot": "evidence/chatgpt/fine-tuning-data.snapshot.txt",
+      "sha256": "6949f4daad90fb162e2efd8d8def3b767da19a837f9cf5403d3c05ed24bbfde6",
+      "capture_kind": "web accessibility conversation snapshot; not full account export"
+    },
+    {
+      "title": "원격 데스크톱 방화벽 재차단 확인",
+      "url": "https://chatgpt.com/g/g-p-6ab1ec90d2048191923833b6b5d8b71e-llm-gucug/c/6accb3b9-9710-83ee-9f95-55ff29a15095",
+      "snapshot": "evidence/chatgpt/local-llm-firewall.snapshot.txt",
+      "sha256": "745a882426e7bed79308a8ac8bd967be78dfffbf39b0a52dc8f2bfbfdd6f0058",
+      "capture_kind": "web accessibility conversation snapshot; not full account export"
+    },
+    {
+      "title": "온톨로지 팩 추천: 문서 근거 관리 참고",
+      "url": "https://chatgpt.com/g/g-p-6a8bdd53f23881919b420b0a0cf4234c-suculibeunhaeng/c/6acc7171-2f88-83e8-b1c6-674012f68f9a",
+      "snapshot": "evidence/chatgpt/ontology-pack-recommendation.snapshot.txt",
+      "sha256": "7bb2f795986e825c7d145f6941967f81693eb5895636f9ef97e5e2fe27ea72ba",
+      "capture_kind": "web accessibility conversation snapshot; not full account export"
+    },
+    {
+      "title": "온톨로지 팩 제공 request",
+      "url": "https://chatgpt.com/g/g-p-6ab1ec90d2048191923833b6b5d8b71e-llm-gucug/c/6acc43f1-7284-83ee-9b5d-fb5e68ab5142",
+      "snapshot": "evidence/chatgpt/ontology-pack-request.snapshot.txt",
+      "sha256": "34a98cb9c4d8cdc4436b55ff31003df725ee525beea82406e03ae9f9f5c02304",
+      "capture_kind": "web accessibility conversation snapshot; not full account export"
+    },
+    {
+      "title": "온톨로지 팩 조회",
+      "url": "https://chatgpt.com/g/g-p-6a9cf8a9ff948191b51efc1190cab3f6-jagigyebal/c/6acb24ef-edd0-83e8-a494-a1cbf7b82517",
+      "snapshot": "evidence/chatgpt/ontology-pack-list.snapshot.txt",
+      "sha256": "316059559ea00c05e80505e5dc6a341923e1c9b3bb05dcdd022dcc0e9ddd171f",
+      "capture_kind": "web accessibility conversation snapshot; not full account export"
+    },
+    {
+      "title": "오픈크랩 팩 추천",
+      "url": "https://chatgpt.com/c/6acb14cb-58cc-83ee-93ab-872e231e95ee",
+      "snapshot": "evidence/chatgpt/opencrab-rag-packs.snapshot.txt",
+      "sha256": "c17863040a12ad546690e4a5bee647f0c1f806fec6b663cb4c418224018466df",
+      "capture_kind": "web accessibility conversation snapshot; not full account export"
+    },
+    {
+      "title": "남진 AI 자동화와 Graph RAG 사이트",
+      "url": "https://namjin-ai-systems.namjini.chatgpt.site/",
+      "snapshot": "evidence/chatgpt/ai-graphrag-site-authenticated.snapshot.txt",
+      "capture_kind": "authenticated existing website snapshot and served HTML",
+      "authorization_history": "Initial login rejected by automatic review; user explicitly authorized site login; the same current ChatGPT account was verified and the login completed.",
+      "served_html": "artifacts/namjin-ai-site/served.html"
+    }
+  ]
+}

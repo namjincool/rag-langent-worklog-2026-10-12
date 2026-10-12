@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#09111f">
+  <meta name="description" content="n8n, MCP, Neo4j와 GraphRAG를 연결해 문서 업무를 근거 있는 지식으로 바꾸는 AI 프로젝트와 학습 과정을 기록합니다.">
+  <title>남진 | AI 자동화와 GraphRAG</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #eef4fa;
+      --muted: #a4b2c3;
+      --dim: #73849a;
+      --page: #09111f;
+      --panel: #101c2c;
+      --panel-raised: #152438;
+      --line: rgba(184, 204, 225, .13);
+      --mint: #42e5cf;
+      --violet: #a99aff;
+      --blue: #7ba9ff;
+      --max: 1160px;
+      font-family: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", "Segoe UI", sans-serif;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      background:
+        radial-gradient(ellipse at 82% 9%, rgba(60, 104, 166, .15), transparent 34rem),
+        var(--page);
+      color: var(--ink);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { color: inherit; font: inherit; }
+    button:focus-visible, a:focus-visible, summary:focus-visible {
+      outline: 3px solid var(--mint);
+      outline-offset: 4px;
+      border-radius: .35rem;
+    }
+    .wrap { width: min(calc(100% - 3rem), var(--max)); margin-inline: auto; }
+
+    .site-header {
+      position: sticky;
+      z-index: 10;
+      top: 0;
+      border-bottom: 1px solid rgba(184, 204, 225, .09);
+      background: rgba(9, 17, 31, .88);
+      backdrop-filter: blur(18px);
+    }
+    .nav-row {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+    .brand { display: inline-flex; align-items: center; gap: .8rem; }
+    .brand-mark {
+      display: grid;
+      width: 36px;
+      aspect-ratio: 1;
+      place-items: center;
+      border: 1px solid rgba(66, 229, 207, .32);
+      border-radius: 11px;
+      color: var(--mint);
+      font-size: .85rem;
+      font-weight: 800;
+      letter-spacing: -.06em;
+    }
+    .brand-name { display: grid; line-height: 1.2; }
+    .brand-name strong { font-size: .9rem; letter-spacing: .02em; }
+    .brand-name span { color: var(--dim); font-size: .68rem; letter-spacing: .15em; }
+    .nav-links { display: flex; align-items: center; gap: clamp(1rem, 3vw, 2.2rem); }
+    .nav-links a { color: #bdc9d7; font-size: .88rem; transition: color .2s ease; }
+    .nav-links a:hover { color: var(--mint); }
+
+    .hero { padding: clamp(4.5rem, 9vw, 7.5rem) 0 5.8rem; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(340px, .95fr);
+      align-items: center;
+      gap: clamp(3rem, 7vw, 6rem);
+    }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: .65rem;
+      color: var(--mint);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { width: 24px; height: 1px; background: currentColor; content: ""; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      max-width: 720px;
+      margin: 1.25rem 0 1.4rem;
+      font-size: clamp(2.8rem, 6.4vw, 5.4rem);
+      font-weight: 750;
+      letter-spacing: -.075em;
+      line-height: 1.13;
+      word-break: keep-all;
+    }
+    h1 .accent { color: var(--mint); }
+    .hero-copy {
+      max-width: 620px;
+      margin-bottom: 1.8rem;
+      color: #bdc9d7;
+      font-size: clamp(1.05rem, 1.5vw, 1.18rem);
+      word-break: keep-all;
+    }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: .55rem; margin-bottom: 2rem; }
+    .tag {
+      padding: .3rem .7rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: #c0ccd9;
+      font-size: .82rem;
+    }
+    .tag.status { border-color: rgba(66, 229, 207, .3); color: var(--mint); }
+    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem; }
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      padding: .7rem 1.15rem;
+      border: 1px solid rgba(66, 229, 207, .38);
+      border-radius: .55rem;
+      background: var(--mint);
+      color: #07151a;
+      font-size: .95rem;
+      font-weight: 750;
+      transition: transform .18s ease, background .18s ease;
+    }
+    .button:hover { transform: translateY(-2px); background: #69efdc; }
+    .button.secondary { border-color: var(--line); background: transparent; color: var(--ink); }
+    .button.secondary:hover { border-color: rgba(66, 229, 207, .45); background: rgba(66, 229, 207, .07); }
+
+    .graph-stage {
+      position: relative;
+      min-height: 410px;
+      overflow: hidden;
+      border: 1px solid rgba(151, 180, 210, .17);
+      border-radius: 1.3rem;
+      background:
+        linear-gradient(rgba(143, 169, 197, .045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(143, 169, 197, .045) 1px, transparent 1px),
+        linear-gradient(145deg, #111f31, #0c1625 68%);
+      background-size: 28px 28px, 28px 28px, auto;
+      box-shadow: 0 25px 80px rgba(0, 0, 0, .24);
+    }
+    .graph-stage::before {
+      position: absolute;
+      width: 220px;
+      aspect-ratio: 1;
+      top: 10%;
+      right: 10%;
+      border-radius: 50%;
+      background: rgba(66, 229, 207, .08);
+      filter: blur(48px);
+      content: "";
+    }
+    .graph-label {
+      position: absolute;
+      top: 1.25rem;
+      left: 1.4rem;
+      color: #91a3b7;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+    }
+    .graph-lines { position: absolute; inset: 12% 5% 7%; width: 90%; height: 81%; overflow: visible; }
+    .graph-lines path { fill: none; stroke: rgba(110, 164, 205, .52); stroke-width: 1.2; }
+    .graph-lines path.flow { stroke: var(--mint); stroke-dasharray: 5 6; animation: drift 18s linear infinite; }
+    .graph-lines circle { fill: #0e1928; stroke: #6ba8d3; stroke-width: 2; }
+    .graph-lines circle.hot { stroke: var(--mint); fill: #173c40; }
+    @keyframes drift { to { stroke-dashoffset: -88; } }
+    .graph-card {
+      position: absolute;
+      z-index: 1;
+      min-width: 133px;
+      padding: .72rem .82rem;
+      border: 1px solid rgba(161, 188, 216, .2);
+      border-radius: .65rem;
+      background: rgba(15, 29, 45, .94);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, .2);
+    }
+    .graph-card small { display: block; margin-bottom: .18rem; color: #7e93aa; font-size: .68rem; letter-spacing: .1em; }
+    .graph-card strong { display: block; font-size: .9rem; font-weight: 650; }
+    .graph-card .dot { display: inline-block; width: 7px; height: 7px; margin-right: .38rem; border-radius: 50%; background: var(--mint); vertical-align: .08em; }
+    .g-doc { top: 24%; left: 7%; }
+    .g-extract { top: 43%; left: 36%; }
+    .g-graph { top: 19%; right: 7%; border-color: rgba(169, 154, 255, .34); }
+    .g-answer { right: 11%; bottom: 15%; }
+    .g-eval { bottom: 13%; left: 9%; border-color: rgba(123, 169, 255, .3); }
+    .graph-caption {
+      position: absolute;
+      right: 1.25rem;
+      bottom: 1rem;
+      left: 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      color: #7e93aa;
+      font-size: .76rem;
+    }
+    .graph-caption b { color: #bbcada; font-weight: 500; }
+
+    .section { padding: 6.5rem 0; border-top: 1px solid var(--line); }
+    .section-head { max-width: 760px; margin-bottom: 2.5rem; }
+    .section-index { color: var(--mint); font-size: .78rem; font-weight: 750; letter-spacing: .16em; }
+    h2 {
+      margin: .7rem 0 .85rem;
+      font-size: clamp(2rem, 4vw, 3.35rem);
+      font-weight: 720;
+      letter-spacing: -.06em;
+      line-height: 1.2;
+      word-break: keep-all;
+    }
+    .section-lede { max-width: 690px; margin-bottom: 0; color: var(--muted); font-size: 1.06rem; word-break: keep-all; }
+
+    .project-shell {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 2rem;
+      padding: clamp(1.4rem, 4vw, 2.4rem);
+      border: 1px solid rgba(169, 154, 255, .22);
+      border-radius: 1.1rem;
+      background: linear-gradient(125deg, rgba(88, 78, 151, .13), rgba(16, 28, 44, .9) 48%);
+    }
+    .project-summary { display: flex; flex-direction: column; align-items: flex-start; }
+    .project-type {
+      display: inline-block;
+      margin-bottom: 1.1rem;
+      padding: .28rem .65rem;
+      border: 1px solid rgba(169, 154, 255, .3);
+      border-radius: 999px;
+      color: #c3baff;
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+    }
+    .project-summary h3 { margin-bottom: .7rem; font-size: clamp(1.5rem, 2.5vw, 2rem); letter-spacing: -.04em; line-height: 1.32; }
+    .project-summary p { color: #aebccd; }
+    .project-note {
+      margin-top: auto;
+      padding: .75rem .9rem;
+      border-left: 2px solid var(--violet);
+      background: rgba(169, 154, 255, .065);
+      color: #c9c0fc;
+      font-size: .85rem;
+    }
+    .feature-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; }
+    .feature {
+      min-height: 138px;
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--line);
+      border-radius: .75rem;
+      background: rgba(8, 16, 28, .46);
+    }
+    .feature-number { color: var(--mint); font-size: .75rem; font-weight: 750; letter-spacing: .12em; }
+    .feature h4 { margin: .45rem 0 .35rem; font-size: 1rem; }
+    .feature p { margin: 0; color: var(--muted); font-size: .87rem; line-height: 1.55; }
+    .stack-line { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: 1.15rem; }
+    .stack-line span { padding: .23rem .56rem; border-radius: .35rem; background: rgba(123, 169, 255, .11); color: #a9c4ff; font-size: .78rem; }
+
+    .flow-section { background: linear-gradient(180deg, rgba(12, 22, 36, .18), rgba(18, 31, 47, .52)); }
+    .flow-layout { display: grid; grid-template-columns: 1.25fr .75fr; gap: 1.5rem; align-items: stretch; }
+    .flow-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .75rem; }
+    .flow-step {
+      position: relative;
+      min-height: 144px;
+      padding: 1rem;
+      border: 1px solid var(--line);
+      border-radius: .75rem;
+      background: #101c2c;
+      text-align: left;
+      cursor: pointer;
+      transition: border-color .18s ease, background .18s ease, transform .18s ease;
+    }
+    .flow-step:hover { transform: translateY(-2px); border-color: rgba(66, 229, 207, .35); }
+    .flow-step[aria-pressed="true"] { border-color: var(--mint); background: rgba(24, 54, 60, .62); }
+    .flow-step span { display: block; margin-bottom: .45rem; color: var(--mint); font-size: .73rem; font-weight: 750; letter-spacing: .12em; }
+    .flow-step strong { display: block; margin-bottom: .25rem; font-size: .98rem; }
+    .flow-step small { display: block; color: var(--muted); font-size: .83rem; line-height: 1.5; }
+    .flow-detail {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 100%;
+      padding: 1.5rem;
+      border: 1px solid rgba(66, 229, 207, .2);
+      border-radius: .8rem;
+      background: linear-gradient(145deg, rgba(66, 229, 207, .09), rgba(16, 28, 44, .95) 55%);
+    }
+    .flow-detail .detail-label { color: var(--mint); font-size: .74rem; font-weight: 750; letter-spacing: .14em; }
+    .flow-detail h3 { margin: .5rem 0 .65rem; font-size: 1.35rem; }
+    .flow-detail p { margin: 0; color: #b5c3d2; }
+    .flow-detail .evidence { margin-top: 1rem; padding-top: .9rem; border-top: 1px solid var(--line); color: #8497ac; font-size: .84rem; }
+    .flow-hint { margin: 1rem 0 0; color: var(--dim); font-size: .82rem; }
+
+    .evaluation-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+    .eval-card {
+      position: relative;
+      min-height: 225px;
+      padding: 1.35rem;
+      border-top: 2px solid var(--blue);
+      background: linear-gradient(180deg, rgba(123, 169, 255, .08), rgba(16, 28, 44, .4) 54%);
+    }
+    .eval-card:nth-child(2) { border-color: var(--violet); background: linear-gradient(180deg, rgba(169, 154, 255, .08), rgba(16, 28, 44, .4) 54%); }
+    .eval-card:nth-child(3) { border-color: var(--mint); background: linear-gradient(180deg, rgba(66, 229, 207, .08), rgba(16, 28, 44, .4) 54%); }
+    .eval-card .metric { color: var(--dim); font-size: .75rem; font-weight: 750; letter-spacing: .14em; text-transform: uppercase; }
+    .eval-card h3 { margin: .65rem 0 .55rem; font-size: 1.23rem; }
+    .eval-card p { margin: 0; color: var(--muted); font-size: .93rem; }
+    .eval-card .prompt { display: block; margin-top: 1rem; color: #d2deeb; font-size: .85rem; }
+    .disclaimer { margin-top: 1.1rem; color: var(--dim); font-size: .84rem; }
+
+    .learning { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(2rem, 6vw, 5rem); }
+    .learning-intro { position: sticky; top: 7rem; align-self: start; }
+    .learning-intro p { color: var(--muted); }
+    .learning-list { display: grid; gap: .7rem; counter-reset: stage; }
+    .learning-item {
+      display: grid;
+      grid-template-columns: 50px 1fr;
+      gap: 1rem;
+      padding: 1.05rem 0;
+      border-bottom: 1px solid var(--line);
+      counter-increment: stage;
+    }
+    .learning-item::before {
+      display: grid;
+      width: 40px;
+      height: 40px;
+      place-items: center;
+      border: 1px solid rgba(66, 229, 207, .28);
+      border-radius: 50%;
+      color: var(--mint);
+      font-size: .8rem;
+      font-weight: 700;
+      content: "0" counter(stage);
+    }
+    .learning-item h3 { margin: .1rem 0 .28rem; font-size: 1rem; }
+    .learning-item p { margin: 0; color: var(--muted); font-size: .9rem; }
+
+    .closing { padding: 4rem 0 4.5rem; border-top: 1px solid var(--line); }
+    .closing-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: clamp(1.5rem, 5vw, 3rem);
+      border: 1px solid rgba(66, 229, 207, .2);
+      border-radius: 1rem;
+      background:
+        radial-gradient(circle at 100% 0, rgba(66, 229, 207, .1), transparent 24rem),
+        #101c2c;
+    }
+    .closing-box h2 { margin: .3rem 0 .55rem; font-size: clamp(1.7rem, 3vw, 2.3rem); }
+    .closing-box p { margin: 0; color: var(--muted); }
+    footer { padding: 1.3rem 0 2rem; color: var(--dim); font-size: .82rem; }
+    .footer-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .75rem; }
+
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .hero-copy { max-width: 700px; }
+      .graph-stage { min-height: 380px; }
+      .project-shell, .flow-layout, .learning { grid-template-columns: 1fr; }
+      .project-note { margin-top: 1rem; }
+      .learning-intro { position: static; }
+    }
+    @media (max-width: 640px) {
+      .wrap { width: min(calc(100% - 2rem), var(--max)); }
+      .nav-row { min-height: 68px; gap: .7rem; }
+      .brand-name span { display: none; }
+      .nav-links { gap: .85rem; }
+      .nav-links a { font-size: .8rem; }
+      .hero { padding: 3.6rem 0 4rem; }
+      h1 { font-size: clamp(2.5rem, 12vw, 3.8rem); }
+      .graph-stage { min-height: 345px; }
+      .graph-card { min-width: auto; padding: .56rem .65rem; }
+      .graph-card strong { font-size: .78rem; }
+      .graph-card small { font-size: .61rem; }
+      .g-doc { left: 4%; }
+      .g-extract { top: 44%; left: 34%; }
+      .g-graph { right: 4%; }
+      .g-answer { right: 5%; bottom: 14%; }
+      .g-eval { bottom: 13%; left: 4%; }
+      .graph-caption { font-size: .68rem; }
+      .section { padding: 4.5rem 0; }
+      .feature-list, .evaluation-grid { grid-template-columns: 1fr; }
+      .feature { min-height: auto; }
+      .flow-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .flow-step { min-height: 130px; padding: .85rem; }
+      .closing-box { align-items: flex-start; flex-direction: column; }
+    }
+    @media (max-width: 390px) {
+      .nav-links { gap: .58rem; }
+      .nav-links a { font-size: .74rem; }
+      .brand-mark { width: 32px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav-row">
+      <a class="brand" href="#home" aria-label="사이트 상단으로 이동">
+        <span class="brand-mark" aria-hidden="true">NJ</span>
+        <span class="brand-name"><strong>남진</strong><span>AI SYSTEMS / FIELD NOTES</span></span>
+      </a>
+      <nav class="nav-links" aria-label="주요 메뉴">
+        <a href="#project">프로젝트</a>
+        <a href="#approach">설계 흐름</a>
+        <a href="#learning">학습 여정</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">AI Automation · Knowledge Graph</div>
+          <h1>업무에 흩어진 지식을<br><span class="accent">연결 가능한 구조</span>로</h1>
+          <p class="hero-copy">n8n, MCP, Neo4j와 GraphRAG를 연결해 문서 업무를 근거가 남는 지식으로 바꾸는 방법을 설계하고 학습합니다.</p>
+          <div class="hero-meta">
+            <span class="tag status">현재 단계 · 학습 및 설계</span>
+            <span class="tag">관심 분야 · AI 업무 자동화</span>
+          </div>
+          <div class="hero-actions">
+            <a class="button" href="#project">프로젝트 살펴보기</a>
+            <a class="button secondary" href="#approach">설계 흐름 보기</a>
+          </div>
+        </div>
+        <div class="graph-stage" role="img" aria-label="문서에서 요구사항을 추출하고 지식 그래프와 GraphRAG 답변으로 이어지는 프로젝트 개념도">
+          <span class="graph-label">DOCUMENT → KNOWLEDGE → ANSWER</span>
+          <svg class="graph-lines" viewBox="0 0 500 350" aria-hidden="true">
+            <path d="M75 83 C145 83 125 150 220 158"/>
+            <path d="M270 155 C340 145 335 80 410 78"/>
+            <path d="M250 185 C310 235 360 260 425 275"/>
+            <path d="M90 280 C145 260 170 205 220 178"/>
+            <path class="flow" d="M83 83 C145 105 150 214 220 165 S338 80 412 78 S372 243 425 275"/>
+            <circle class="hot" cx="76" cy="83" r="7"/>
+            <circle cx="245" cy="164" r="8"/>
+            <circle cx="411" cy="78" r="7"/>
+            <circle cx="425" cy="275" r="7"/>
+            <circle cx="88" cy="280" r="7"/>
+          </svg>
+          <div class="graph-card g-doc"><small>01 / SOURCE</small><strong>RFP · PDF</strong></div>
+          <div class="graph-card g-extract"><small>02 / STRUCTURE</small><strong><span class="dot"></span>요구사항</strong></div>
+          <div class="graph-card g-graph"><small>03 / KNOWLEDGE</small><strong>Ontology · Neo4j</strong></div>
+          <div class="graph-card g-answer"><small>04 / RESPONSE</small><strong>GraphRAG 답변</strong></div>
+          <div class="graph-card g-eval"><small>05 / EVIDENCE</small><strong>출처 · 검증 기준</strong></div>
+          <div class="graph-caption"><b>AI 프로젝트 업무 비서 구상</b><span>개념도 · 구현 완료 화면이 아닙니다</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="project">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="section-index">01 / PROJECT CONCEPT</span>
+          <h2>문서에서 답변까지,<br>근거가 이어지는 AI 비서</h2>
+          <p class="section-lede">RFP와 제안 문서를 구조화해 요구사항을 찾고, 관련 지식과 출처를 함께 보여주는 업무 지원 흐름을 구상합니다.</p>
+        </div>
+        <div class="project-shell">
+          <div class="project-summary">
+            <span class="project-type">대표 프로젝트 구상</span>
+            <h3>AI 프로젝트<br>업무 비서</h3>
+            <p>문서 안의 요구사항, 시스템, 기관, 일정 정보를 온톨로지에 맞춰 정리하고, 그래프 기반 검색으로 질문에 답하는 지식 시스템입니다.</p>
+            <div class="stack-line" aria-label="관심 기술">
+              <span>n8n</span><span>MCP</span><span>Neo4j</span><span>GraphRAG</span>
+            </div>
+            <p class="project-note">현재는 학습·설계 단계입니다. 구현 완료 실적이 아니라 목표 구조와 검증 계획을 기록합니다.</p>
+          </div>
+          <div class="feature-list">
+            <article class="feature">
+              <span class="feature-number">01 / INGEST</span>
+              <h4>문서 수집과 분할</h4>
+              <p>RFP·PDF에서 페이지와 문단 위치를 보존해 근거 추적이 가능한 단위로 나눕니다.</p>
+            </article>
+            <article class="feature">
+              <span class="feature-number">02 / EXTRACT</span>
+              <h4>요구사항 구조화</h4>
+              <p>LLM이 항목, 주체, 조건, 출처를 추출하고 사람이 확인할 수 있는 형태로 정리합니다.</p>
+            </article>
+            <article class="feature">
+              <span class="feature-number">03 / MODEL</span>
+              <h4>온톨로지와 그래프</h4>
+              <p>엔터티와 관계를 공통 모델에 매핑하고 Neo4j에 연결합니다.</p>
+            </article>
+            <article class="feature">
+              <span class="feature-number">04 / RETRIEVE</span>
+              <h4>질의와 근거 응답</h4>
+              <p>MCP 도구로 그래프를 조회하고 답변마다 연결된 문서 근거를 제시합니다.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section flow-section" id="approach">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="section-index">02 / SYSTEM FLOW</span>
+          <h2>한 단계씩, 근거를 잃지 않도록</h2>
+          <p class="section-lede">각 단계의 입력과 결과를 분명히 두어 오류가 어디서 생겼는지 확인할 수 있도록 설계합니다.</p>
+        </div>
+        <div class="flow-layout">
+          <div>
+            <div class="flow-grid" role="group" aria-label="프로젝트 처리 단계">
+              <button class="flow-step" type="button" data-step="source" aria-pressed="true">
+                <span>STEP 01</span><strong>문서 인입</strong><small>RFP · PDF · 표</small>
+              </button>
+              <button class="flow-step" type="button" data-step="extract" aria-pressed="false">
+                <span>STEP 02</span><strong>정보 추출</strong><small>요구사항 · 출처</small>
+              </button>
+              <button class="flow-step" type="button" data-step="model" aria-pressed="false">
+                <span>STEP 03</span><strong>온톨로지 매핑</strong><small>엔터티 · 관계</small>
+              </button>
+              <button class="flow-step" type="button" data-step="store" aria-pressed="false">
+                <span>STEP 04</span><strong>그래프 저장</strong><small>Neo4j · Cypher</small>
+              </button>
+              <button class="flow-step" type="button" data-step="query" aria-pressed="false">
+                <span>STEP 05</span><strong>그래프 조회</strong><small>MCP · GraphRAG</small>
+              </button>
+              <button class="flow-step" type="button" data-step="verify" aria-pressed="false">
+                <span>STEP 06</span><strong>답변 검증</strong><small>출처 · 품질</small>
+              </button>
+            </div>
+            <p class="flow-hint">단계를 선택하면 설계 시 확인할 내용을 볼 수 있습니다.</p>
+          </div>
+          <aside class="flow-detail" aria-live="polite" aria-atomic="true">
+            <span class="detail-label" id="detail-step">STEP 01 / SOURCE</span>
+            <h3 id="detail-title">문서의 위치를 함께 보존합니다</h3>
+            <p id="detail-copy">문서를 나눌 때 페이지와 문단 ID를 유지해, 나중에 답변의 근거를 원문으로 되짚을 수 있게 합니다.</p>
+            <span class="evidence" id="detail-evidence">확인 기준 · 원문 페이지와 텍스트 구간을 다시 찾을 수 있는가</span>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="quality">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="section-index">03 / EVALUATION</span>
+          <h2>답변의 품질을 감으로 판단하지 않기</h2>
+          <p class="section-lede">정답 세트와 근거 데이터를 준비해 검색, 그래프 구조, 최종 답변을 각각 확인하는 평가 흐름을 학습합니다.</p>
+        </div>
+        <div class="evaluation-grid">
+          <article class="eval-card">
+            <span class="metric">RETRIEVAL</span>
+            <h3>필요한 근거를 찾았나</h3>
+            <p>Golden QA를 기준으로 관련 문단과 그래프 경로가 검색 결과에 포함되는지 검토합니다.</p>
+            <span class="prompt">점검 대상 · 검색 결과와 누락된 근거</span>
+          </article>
+          <article class="eval-card">
+            <span class="metric">GRAPH QUALITY</span>
+            <h3>엔터티와 관계가 맞나</h3>
+            <p>추출된 개체, 관계 유형, 출처 연결이 정한 온톨로지 규칙을 따르는지 확인합니다.</p>
+            <span class="prompt">점검 대상 · 그래프 구조와 출처 연결</span>
+          </article>
+          <article class="eval-card">
+            <span class="metric">ANSWER QUALITY</span>
+            <h3>근거에 충실한 답변인가</h3>
+            <p>Faithfulness, groundedness, answer relevance를 나누어 답변을 평가합니다.</p>
+            <span class="prompt">점검 대상 · 근거 일치도와 질문 적합성</span>
+          </article>
+        </div>
+        <p class="disclaimer">평가 수치는 아직 수집하지 않았습니다. 여기에는 목표로 삼는 검증 항목만 정리했습니다.</p>
+      </div>
+    </section>
+
+    <section class="section" id="learning">
+      <div class="wrap learning">
+        <div class="learning-intro">
+          <span class="section-index">04 / LEARNING PATH</span>
+          <h2>작게 익히고,<br>하나의 시스템으로 연결하기</h2>
+          <p>자동화부터 평가까지 필요한 기초를 차례로 보완하며, 각 기술을 한 프로젝트 안에서 검증하는 것이 목표입니다.</p>
+        </div>
+        <div class="learning-list">
+          <article class="learning-item">
+            <div><h3>API · Webhook · JSON과 n8n</h3><p>데이터가 자동화 흐름을 따라 이동하는 방식을 익힙니다.</p></div>
+          </article>
+          <article class="learning-item">
+            <div><h3>MCP 도구와 서버</h3><p>모델이 외부 기능을 일관된 도구 인터페이스로 호출하는 흐름을 살펴봅니다.</p></div>
+          </article>
+          <article class="learning-item">
+            <div><h3>Neo4j와 Cypher</h3><p>노드와 관계를 모델링하고 그래프 질의를 작성하는 기본기를 다집니다.</p></div>
+          </article>
+          <article class="learning-item">
+            <div><h3>온톨로지와 GraphRAG</h3><p>업무 개념을 그래프 구조로 표현하고 검색·생성 과정에 연결합니다.</p></div>
+          </article>
+          <article class="learning-item">
+            <div><h3>RAG 품질 평가</h3><p>Golden QA와 근거 검증으로 검색 및 답변의 약점을 찾습니다.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="wrap closing-box">
+        <div>
+          <span class="section-index">BUILDING IN PUBLIC, ONE STEP AT A TIME</span>
+          <h2>배운 내용을 작동하는 흐름으로</h2>
+          <p>학습과 설계가 구체화될 때 이 기록도 함께 업데이트합니다.</p>
+        </div>
+        <a class="button secondary" href="#home">처음으로</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-row">
+      <span>© 2026 남진 · AI Automation & Knowledge Systems</span>
+      <span>학습·설계 노트</span>
+    </div>
+  </footer>
+
+  <script>
+    const stepDetails = {
+      source: {
+        step: "STEP 01 / SOURCE",
+        title: "문서의 위치를 함께 보존합니다",
+        copy: "문서를 나눌 때 페이지와 문단 ID를 유지해, 나중에 답변의 근거를 원문으로 되짚을 수 있게 합니다.",
+        evidence: "확인 기준 · 원문 페이지와 텍스트 구간을 다시 찾을 수 있는가"
+      },
+      extract: {
+        step: "STEP 02 / EXTRACT",
+        title: "항목과 출처를 한 쌍으로 추출합니다",
+        copy: "요구사항 문장만 가져오지 않고 주체, 조건, 일정 같은 필드와 원문 위치를 함께 저장하도록 설계합니다.",
+        evidence: "확인 기준 · 추출값이 원문 문장으로 뒷받침되는가"
+      },
+      model: {
+        step: "STEP 03 / ONTOLOGY",
+        title: "업무 용어를 공통 모델에 맞춥니다",
+        copy: "문서마다 다른 표현을 공통 엔터티와 관계 유형에 매핑하고, 매핑이 불확실한 항목은 검토 대상으로 남깁니다.",
+        evidence: "확인 기준 · 엔터티와 관계가 정의된 스키마를 따르는가"
+      },
+      store: {
+        step: "STEP 04 / GRAPH",
+        title: "관계와 출처를 그래프에 연결합니다",
+        copy: "Neo4j에 문서, 요구사항, 시스템 등의 노드를 연결하고 각 주장까지 출처를 따라갈 수 있도록 구성합니다.",
+        evidence: "확인 기준 · 같은 개념이 중복되거나 잘못 연결되지 않았는가"
+      },
+      query: {
+        step: "STEP 05 / QUERY",
+        title: "질문과 관련된 경로를 조회합니다",
+        copy: "MCP 도구가 그래프 조회를 제공하고, GraphRAG가 질문과 관련된 관계 및 문서 근거를 답변에 반영하도록 합니다.",
+        evidence: "확인 기준 · 질문에 필요한 근거와 관계가 검색되는가"
+      },
+      verify: {
+        step: "STEP 06 / EVALUATE",
+        title: "검색과 답변을 따로 검증합니다",
+        copy: "Golden QA로 검색 결과를 확인하고, 답변이 근거에 충실한지와 질문에 적합한지를 분리해 평가합니다.",
+        evidence: "확인 기준 · 근거 누락, 관계 오류, 근거 없는 문장이 드러나는가"
+      }
+    };
+
+    const stepButtons = document.querySelectorAll(".flow-step");
+    stepButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const detail = stepDetails[button.dataset.step];
+        if (!detail) return;
+        stepButtons.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+        document.getElementById("detail-step").textContent = detail.step;
+        document.getElementById("detail-title").textContent = detail.title;
+        document.getElementById("detail-copy").textContent = detail.copy;
+        document.getElementById("detail-evidence").textContent = detail.evidence;
+      });
+    });
+  </script>
+</body>
+</html>

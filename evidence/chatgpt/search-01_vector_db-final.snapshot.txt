@@ -1,0 +1,20 @@
+# note: interactive (clickable / focusable) elements only.
+- title: "오픈크랩 팩 추천" [url=https://chatgpt.com/c/6acb14cb-58cc-83ee-93ab-872e231e95ee?src=history_search]
+- dialog "전역 검색":
+  - banner:
+    - text: "검색"
+    - combobox "검색" [ref=e576] [focused] [placeholder="검색…"]: "01_vector_db"
+    - button "지우기" [ref=e577]
+    - button "전체 검색 닫기" [ref=e578]
+    - tablist "검색 결과 유형":
+      - tab "전체" [ref=e579] [selected]
+      - tab "채팅" [ref=e580]
+      - tab "이미지" [ref=e581]
+      - tab "문서" [ref=e582]
+      - tab "프로젝트" [ref=e583]
+    - button "라이브러리 소스 필터링" [ref=e584]
+  - tabpanel "전체":
+    - listbox [ref=e588]
+    - status: "검색 결과 없음"
+- iframe:
+  - button "Open selection tools" [ref=f3e1]

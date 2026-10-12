@@ -1,0 +1,31 @@
+# note: interactive (clickable / focusable) elements only.
+- title: "ChatGPT" [url=https://chatgpt.com/library]
+- dialog "전역 검색":
+  - banner:
+    - text: "검색"
+    - combobox "검색" [ref=e239] [focused] [placeholder="검색…"]: "RAG"
+    - button "지우기" [ref=e240]
+    - button "전체 검색 닫기" [ref=e241]
+    - tablist "검색 결과 유형":
+      - tab "전체" [ref=e242] [selected]
+      - tab "채팅" [ref=e243]
+      - tab "이미지" [ref=e244]
+      - tab "문서" [ref=e245]
+      - tab "프로젝트" [ref=e246]
+    - button "라이브러리 소스 필터링" [ref=e247]
+  - tabpanel "전체":
+    - listbox [ref=e276]:
+      - option "프롬프트 개선 RAG 구축…erprise RAG)\*\*에 최적화하되, **Low-Code 수준에서 가장 빠르고 쉽게 구축하는 것**을 최우선으로 설정했습니다. 개인용 RAG 와 " [ref=e279] [selected]
+      - option "RAG 구축 순서와 내용… Vector RAG PoC — 사용자 권한 및 원격 접속 검증 **가능합니다.** 단, 일반 사용자 권한으로 실행할 수 있는지와 다른 PC에서 원격으로 " [ref=e280]
+      - option "남진 AI 자동화와 Graph RAG https://namjin-ai-systems.namjini.chatgpt.site 10월 1일" [ref=e281]
+      - option "온톨로지 팩 조회…화, Graph RAG 학습, 제안서 작성 및 자기계발 프로젝트를 기준으로 우선 확인할 팩입니다. | 팩 이름 | 주요 활용 | |--------|--------" [ref=e282]
+      - option "오픈크랩 팩 추천… 검사 | | RAG 구현 | Vector RAG 와 Graph RAG 검색 로직 개발 | OpenCrab을 실제 조회한 결과, 현재 계정에서 텍스트 인제스트, " [ref=e283]
+      - option "KNCCS_Graph RAG_Ontology.svg 7월 28일" [ref=e284]
+      - option "도서 분석… Agent, RAG, Ontology, MCP와 같은 기술을 실제 업무 시스템에 적용하는 경우에는 이 책의 문제의식이 특히 실용적입니다. 중요한 것은 단순히 정답을 생" [ref=e285]
+      - option "밤 11시 하루 체크인…LLM 구축이 RAG·온톨로지와 연결되고, 그 경험이 이직 포트폴리오로 이어질 수 있다면 내일의 핵심은 그 한 축에 집중하는 것**이 효율적이야. 오늘 체크" [ref=e286]
+      - option "AI LLM 기술 뉴스 브리핑…하는 멀티모달 RAG 에 활용 가능 - 민감 데이터를 클라우드로 보내지 않는 단말·엣지 검색 구조 검토 가능 - 기존 텍스트 임베딩과 교체할 때 한국" [ref=e287]
+      - option "로컬 LLM 구축안…| | 7 | RAG 구축 | 사내 문서 기반 답변 제공 | 구성은 다음과 같습니다. ```text [직원 PC] │ │ 브라우저에서 사내 AI 접속 ▼ [Op" [ref=e288]
+      - option "파인튜닝과 데이터 우선순위…*Vector RAG + Graph RAG + Ontology**를 기준으로 설명하겠습니다. 먼저 두 가지 질문에 대한 핵심 답변입니다. **1\. 로컬" [ref=e289]
+      - option "온톨로지 팩 제공 request… | Graph RAG 구조, 데이터 및 근거 관리 학습 | A / 100 | | 2 | **company-proposal** | RFP와 평가 기" [ref=e290]
+- iframe:
+  - button "Open selection tools" [ref=f3e1]

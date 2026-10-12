@@ -1,0 +1,261 @@
+CANONICAL_URL https://chatgpt.com/g/g-p-6ab1ec90d2048191923833b6b5d8b71e-llm-gucug/c/6accb3b9-9710-83ee-9f95-55ff29a15095
+- title: "원격 데스크톱 방화벽 재차단 확인" [url=https://chatgpt.com/g/g-p-6ab1ec90d2048191923833b6b5d8b71e-llm-gucug/c/6accb3b9-9710-83ee-9f95-55ff29a15095]
+- region "대화" [ref=e106] [scrollable]:
+  - status
+  - button "사용자 첨부 파일" [ref=e189]
+  - text: "현재 업로드하신 화면을 보면  Open WebUI 서버가 HTTP 요청을 수신하고 있지만, 일부 요청을 정상적인 HTTP 형식으로 해석하지 못하는 상황 으로 보입니다.또한  Test-Path ...\.venv\Scripts\open-webui.exe 에서  False 가 나왔다는 것은 해당 경로에 실행 파일이 없다는 의미이지, Open WebUI가 설치되지 않았다는 의미는 아닙니다."
+  - heading "1. 오류 원인 분석" [level=2]
+  - text: "특히  Invalid HTTP request received 는  HTTP 서버에 HTTPS 요청이 들어오는 경우 에도 발생할 수 있습니다.예를 들어 서버가 HTTP만 제공하는데 브라우저가  https://192.168.113.143:8080 으로 요청하면 해당 오류가 발생할 수 있습니다.다만 이 로그만으로 HTTPS 문제라고 확정할 수는 없습니다."
+  - heading "2. 지금 바로 확인할 3가지" [level=2]
+  - heading "① 회사 PC에서 서버 수신 주소 확인" [level=3]
+  - list:
+    - listitem: "0.0.0.0  또는  192.168.113.143 → 외부 접속을 받을 수 있는 수신 주소"
+    - listitem: "127.0.0.1 → 해당 PC 내부에서만 접속 가능"
+    - listitem: "결과 없음 → 8080 포트에서 수신 중인 서버 없음"
+  - heading "② 다른 PC에서 HTTP 접속 테스트" [level=3]
+  - text: "기존 다른 PC(192.168.114.88)에서 실행하세요.반드시  http://를 사용하세요. https://가 아닙니다.브라우저도 다음 주소로 접속합니다.http://192.168.113.143:8080"
+  - heading "③ 회사 PC에서 Open WebUI 실행 환경 확인" [level=3]
+  - paragraph:
+    - text: "공식 Open WebUI 문서에서는 Windows의 uv 실행 방식으로  uvx --python 3.11 open-webui@latest serve 를 안내합니다. 다만 지금은 기존 데이터 경로를 확인하지 않았으므로 새 인스턴스를 실행하기보다 기존 실행 방식을 먼저 확인하는 것이 안전합니다."
+    - button "+1" [ref=e107]
+  - heading "3. 테스트 결과별 다음 조치" [level=2]
+  - paragraph:
+    - text: "참고로 Uvicorn에서는 HTTP 파서 버전 조합으로 정상 HTTP 요청이 400 오류를 반환했다는 보고도 있으므로, HTTPS 문제라고 단정하지 않겠습니다."
+    - button [ref=e108]
+  - text: "결론: False 는 기존 실행 파일의 경로가 다르다는 뜻이며, Invalid HTTP request received 는 별도로 원인을 확인해야 하는 서버 로그입니다. 우선 위 ①번과 ②번의 출력 결과를 보내주시면 서버 재설치나 기존 데이터 변경 없이 다음 해결 단계를 정확히 안내하겠습니다."
+  - button "복사" [ref=e109]
+  - button "공유" [ref=e110]
+  - button "프로젝트 소스에 추가" [ref=e111]
+  - button "소리 내어 읽기" [ref=e112]
+  - button "응답 다시 생성" [ref=e113]
+  - button "추가 액션" [ref=e114]
+  - button "사용자 첨부 파일" [ref=e190]
+  - button "7s 동안 처리함" [ref=e115]
+  - text: "현재는  다른 PC에서 Open WebUI 접속에 성공했으므로, 매번 PowerShell을 실행하고 서버가 시작될 때까지 기다려야 하는 문제를 개선 하면 됩니다.제공하신 결과와 Open WebUI 공식 문서를 기준으로 가장 적합한 방법을 안내하겠습니다."
+  - heading "1. 현재 환경 분석" [level=2]
+  - text: "uv tool list 에 설치 목록이 없는 것은 이상한 상황이 아닙니다. uvx 는 별도의 캐시 환경에서 패키지를 실행할 수 있기 때문입니다."
+  - paragraph:
+    - text: "Open WebUI 공식 문서에서도 Windows의  uvx  실행 방법을 지원합니다."
+    - button [ref=e116]
+  - heading "2. 권장하는 운영 방식" [level=2]
+  - text: "다른 PC 브라우저 접속 회사 PC Open WebUI Windows 작업 스케줄러 로그인 시 서버 자동 실행 · 재실행 관리"
+  - paragraph:
+    - text: "작업 스케줄러는 Windows에서 로그인 또는 부팅 시 프로그램을 자동으로 실행할 수 있는 공식 기능입니다."
+    - button [ref=e117]
+  - heading "3. 1단계 — 기존 데이터와 실행 환경부터 확인" [level=2]
+  - text: "먼저 회사 PC에서 아래 명령어를 실행하세요.이 명령어는 현재 실행 중인 Python·uv 관련 프로세스를 확인합니다.그다음:여기서 기존 데이터 위치가 확인되면 계정, 채팅 기록 및 설정을 유지하면서 자동 실행을 구성할 수 있습니다.중요: 데이터 위치를 모르고 새  DATA_DIR 을 설정하면 기존 계정이나 채팅 기록이 없는 별도 Open WebUI 환경이 실행될 수 있습니다."
+  - heading "4. 2단계 — 실행 스크립트 구성" [level=2]
+  - text: "기존 데이터 경로가 확인되고 사내 보안 정책상 허용되면 다음과 같은 실행 스크립트를 사용할 수 있습니다.아래는 예시이며, DATA_DIR 과 실행 버전은 실제 기존 환경에 맞게 변경해야 합니다.반복 실행 시에는  open-webui@latest  대신 검증된 버전으로 고정하면 예상하지 못한 버전 변경 가능성을 줄일 수 있습니다."
+  - heading "5. 3단계 — 자동 시작 설정" [level=2]
+  - list:
+    - listitem: "회사 PC에서  Win + R 을 누릅니다."
+    - listitem: "taskschd.msc 를 입력합니다."
+    - listitem: "작업 만들기 를 선택합니다."
+    - listitem: "트리거에서  로그온할 때 를 선택합니다."
+    - listitem: "동작에서 PowerShell 실행 파일과 앞서 만든 스크립트를 지정합니다."
+    - listitem: "설정에서 작업이 이미 실행 중일 때  새 인스턴스를 시작하지 않음 을 선택합니다."
+    - listitem: "승인된 계정과 권한으로 저장합니다."
+  - text: "로그인하지 않아도 운영해야 한다면 부팅 시 자동 실행 또는 Windows 서비스 방식이 더 적합할 수 있습니다. 단, PC가 절전 상태이거나 꺼져 있으면 원격 접속은 불가능합니다."
+  - heading "6. 실제로 느린 구간 확인" [level=2]
+  - text: "자동 시작은  서버가 꺼져 있어 접속할 때마다 수동으로 시작해야 하는 문제 를 해결합니다. 이미 서버가 실행 중인데 웹페이지 로딩이나 AI 답변이 느리다면 별도 성능 분석이 필요합니다.어느 단계에서 시간이 오래 걸리나요?"
+  - radiogroup "Options" [ref=e118]:
+    - label [ref=e119]:
+      - radio [ref=e120] [checked]
+      - text: "PowerShell에서 Open WebUI 서버 실행이 오래 걸림"
+    - label [ref=e121]:
+      - radio [ref=e122]
+      - text: "서버 실행 후 다른 PC에서 웹페이지 로딩이 느림"
+    - label [ref=e123]:
+      - radio [ref=e124]
+      - text: "웹페이지는 빠르지만 Qwen3:8B의 답변이 느림"
+  - text: "현재 Open WebUI는 어떻게 실행하고 있나요?"
+  - radiogroup "Options" [ref=e125]:
+    - label [ref=e126]:
+      - radio [ref=e127] [checked]
+      - text: "매번 uvx 명령어를 직접 입력"
+    - label [ref=e128]:
+      - radio [ref=e129]
+      - text: "기존 PowerShell 창을 계속 실행 상태로 유지"
+    - label [ref=e130]:
+      - radio [ref=e131]
+      - text: "정확한 실행 방법을 모르겠음"
+  - button "맞춤 해결 방법 확인" [ref=e132]
+  - text: "결론: 현재는 Open WebUI를 재설치하기보다 기존 실행 환경을 보존하면서 Windows 자동 실행을 구성하는 것이 우선입니다. 다만 접속 지연 자체가 서버 시작 때문인지 브라우저 통신 때문인지 먼저 구분해야 정확한 개선이 가능합니다."
+  - button "복사" [ref=e133]
+  - button "공유" [ref=e134]
+  - button "프로젝트 소스에 추가" [ref=e135]
+  - button "소리 내어 읽기" [ref=e136]
+  - button "응답 다시 생성" [ref=e137]
+  - button "추가 액션" [ref=e138]
+  - text: "Windows 작업 스케줄러에서  Open WebUI를 자동 실행하도록 설정하는 방법 을 처음부터 상세히 설명하겠습니다.현재 확인된 환경은 다음과 같습니다.전체 과정은  ① 스크립트 파일 생성 → ② 수동 실행 테스트 → ③ 작업 스케줄러 등록 → ④ 자동 실행 검증  순서입니다."
+  - heading "1단계. Open WebUI 실행 스크립트 만들기" [level=2]
+  - text: "스크립트는 PowerShell에서 실행할 명령어를 하나의 파일에 저장한 것입니다. 확장자는 .ps1 입니다."
+  - heading "① 메모장 실행" [level=3]
+  - list:
+    - listitem: "Win + R 을 누릅니다."
+    - listitem: "notepad 를 입력하고 Enter를 누릅니다."
+    - listitem: "아래 코드를 붙여넣습니다."
+  - text: "이 스크립트는 기존에 확인된  uvx.exe  실행 경로를 사용합니다.단, 이전에 사용하던 Open WebUI의 데이터 경로와 버전이 아직 확인되지 않았습니다. 기존 채팅 기록이나 계정을 유지하려면 기존  DATA_DIR  및 실행 환경을 먼저 확인하고 반영해야 합니다. 현재 코드는 실행 방식 확인을 위한 예시입니다."
+  - heading "② 스크립트 파일 저장" [level=3]
+  - text: "메모장 상단에서  파일 → 다른 이름으로 저장 을 선택합니다.다음과 같이 설정하세요.파일 저장 후 아래 경로에 있는지 확인합니다.주의: 파일이  start-openwebui.ps1.txt 로 저장되면 안 됩니다."
+  - heading "2단계. 스크립트 수동 실행 테스트" [level=2]
+  - text: "기존 Open WebUI 서버가 이미 실행 중이라면 먼저 종료하고 진행하세요. 동일한 포트에서 서버를 중복 실행하면 충돌할 수 있습니다.PowerShell에서 실행합니다.정상 실행되면 다른 PowerShell 창을 열어 확인합니다.0.0.0.0:8080 에서 수신 중인지 확인하세요.실행 테스트가 완료되면 해당 서버를 종료한 다음 작업 스케줄러에 등록합니다."
+  - heading "3단계. Windows 작업 스케줄러에 등록하기" [level=2]
+  - heading "① 작업 스케줄러 실행" [level=3]
+  - text: "Win + R → taskschd.msc  입력 → Enter 실행되면 오른쪽의  작업 만들기 를 클릭합니다.주의: 기본 작업 만들기 가 아니라  작업 만들기 를 선택하세요."
+  - heading "② 일반 탭 설정" [level=3]
+  - text: "회사 PC에서 관리자 권한이나 특수 권한이 필요한 실행 환경이라면 IT 담당자와 확인해야 합니다."
+  - heading "③ 트리거 탭 설정" [level=3]
+  - list:
+    - listitem: "상단의  트리거  탭 선택"
+    - listitem: "왼쪽 하단  새로 만들기  클릭"
+    - listitem: "작업 시작: 로그온할 때"
+    - listitem: "설정: 특정 사용자 → si3  계정 선택"
+    - listitem: "사용  체크"
+    - listitem: "확인 클릭"
+  - text: "이렇게 설정하면  si3  계정으로 Windows에 로그인할 때 Open WebUI 실행이 시작됩니다."
+  - heading "④ 동작 탭 설정 — 가장 중요한 부분" [level=3]
+  - list:
+    - listitem: "상단  동작  탭 선택"
+    - listitem: "새로 만들기  클릭"
+    - listitem: "동작: 프로그램 시작  선택"
+    - listitem: "다음 세 개의 필드를 입력합니다."
+  - text: "새 동작 입력 예시 설정값"
+  - label: "프로그램/스크립트"
+  - text: "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
+  - button [ref=e139]
+  - label: "인수 추가(옵션)"
+  - text: "-NoProfile -NonInteractive -File \"C:\Users\si3\open-webui\start-openwebui.ps1\""
+  - button [ref=e140]
+  - label: "시작 위치(옵션)"
+  - text: "C:\Users\si3\open-webui"
+  - button [ref=e141]
+  - text: "시작 위치에는 큰따옴표를 넣지 않습니다. 예시는 앞서 지정한 스크립트 파일이 실제로 존재할 때 유효합니다.핵심: .ps1  파일은  프로그램/스크립트 에 직접 넣는 것이 아니라, PowerShell의 -File  인수에 지정합니다."
+  - heading "⑤ 조건 탭 설정" [level=3]
+  - list:
+    - listitem: "컴퓨터가 AC 전원 사용 중일 때만 작업 시작: 데스크톱은 기본값 유지 가능, 노트북은 운영 정책에 맞게 선택"
+    - listitem: "다음 네트워크 연결을 사용할 경우에만 시작: 특별한 요구가 없으면 체크 해제"
+  - heading "⑥ 설정 탭 설정" [level=3]
+  - text: "마지막 설정은 특히 중요합니다. 서버 프로그램은 장시간 실행되어야 하므로 시간제한으로 자동 종료되지 않도록 해야 합니다.모든 설정이 끝났으면  확인 을 클릭하여 저장합니다."
+  - heading "4단계. 자동 실행 정상 여부 확인" [level=2]
+  - text: "작업 스케줄러의 목록에서  OpenWebUI_AutoStart 를 선택한 뒤 마우스 우클릭 → 실행 을 클릭하세요.작업 시작 후 PowerShell에서 확인합니다.정상적으로 서버가 시작되면 다른 PC에서 접속합니다.http://192.168.113.143:8080 작업 스케줄러에서  실행 중 이라고 표시되어도 서버가 실제로 준비되었다는 뜻은 아니므로, 위 포트 테스트까지 확인해야 합니다."
+  - heading "5단계. 알아둘 점" [level=2]
+  - list:
+    - listitem: "로그인 시 자동 시작 이므로 Windows를 재부팅한 뒤 로그인하지 않으면 실행되지 않을 수 있습니다."
+    - listitem: "원격 데스크톱을 단순히 연결 해제하면 일반적으로 기존 로그인 세션과 프로세스는 유지됩니다. 그러나  로그아웃 하면 종료될 수 있습니다."
+    - listitem: "자동 시작되더라도 회사 PC가 종료·절전 상태라면 다른 PC에서 접속할 수 없습니다."
+    - listitem: "Open WebUI만 실행되어도 Qwen 모델을 제공하는 Ollama 등 백엔드 서비스가 중지되어 있다면 AI 채팅은 작동하지 않을 수 있습니다."
+    - listitem:
+      - paragraph:
+        - text: "Open WebUI 공식 문서에서는  uvx  사용 시  DATA_DIR 을 명시하도록 권고하고 있습니다. 반드시 기존 데이터 위치를 확인한 후 자동 실행을 운영하는 것이 좋습니다."
+        - button [ref=e142]
+  - text: "결론: 작업 스케줄러의 동작 탭에서  powershell.exe 를 프로그램으로 지정하고, -File  뒤에 작성한 .ps1  파일의 전체 경로를 입력하면 됩니다. 단, 기존 채팅 데이터를 보호하기 위해 자동 실행을 활성화하기 전에 데이터 경로와 스크립트의 수동 실행 결과를 먼저 검증하세요."
+  - button "복사" [ref=e143]
+  - button "공유" [ref=e144]
+  - button "프로젝트 소스에 추가" [ref=e145]
+  - button "소리 내어 읽기" [ref=e146]
+  - button "응답 다시 생성" [ref=e147]
+  - button "추가 액션" [ref=e148]
+  - button "33s 동안 처리함" [ref=e149]
+  - heading "Open WebUI 자동 실행 설정 재검증 결과" [level=1]
+  - text: "기존에 안내한 Windows 작업 스케줄러 설정을 공식 문서와 비교한 결과, 기본적인 설정 방법은 맞지만, 실제 운영에 적용하기 전에 수정해야 할 부분이 있습니다.특히 현재 회사 PC에서는  uvx 를 사용하고 있기 때문에  기존 데이터 경로와 패키지 버전 관리가 중요합니다."
+  - heading "1. 기존 안내 검증표" [level=2]
+  - paragraph:
+    - text: "근거:"
+    - link "Open WebUI 공식 설치 가이드" [ref=e151]
+    - text: "및"
+    - link "Astral uv 공식 도구 실행 문서" [ref=e153]
+    - text: "."
+    - button "+1" [ref=e154]
+  - heading "2. 가장 중요한 수정 사항: 기존 데이터 경로" [level=2]
+  - text: "Open WebUI 공식 문서에는 Windows에서 다음과 같이 실행하도록 안내합니다.여기서  C:\open-webui\data 는 공식 문서의 예시 경로이며, 현재 회사 PC에 실제로 사용 중인 경로라는 뜻은 아닙니다."
+  - paragraph:
+    - text: "또한 @latest 는 새 버전이 반영될 수 있어 자동 시작 용도로는 현재 검증된 버전을 고정하는 편이 안정적입니다. uvx 의 실행 환경은 캐시 기반이므로  uv tool list 가 비어 있다는 사실도 오류의 증거가 아닙니다."
+    - button "+1" [ref=e155]
+  - text: "이전에 실행한 명령에서  DATA_DIR 을 지정하지 않았다면, 새 스크립트에 임의 경로를 넣는 순간 기존 계정이나 채팅 내역이 보이지 않을 수 있습니다.따라서  지금은 Open WebUI 재설치, 캐시 삭제, 데이터 폴더 이동을 하지 않는 것이 좋습니다."
+  - heading "3. 검증된 작업 스케줄러 설정" [level=2]
+  - paragraph:
+    - text: "Microsoft 공식 문서에서 작업 스케줄러의 실행 파일, 인수, 시작 디렉터리, 로그온 트리거를 지원하는 것을 확인했습니다."
+    - button "+1" [ref=e156]
+  - heading "동작 탭" [level=3]
+  - text: "이 설정은  스크립트 파일이 실제 해당 경로에 있고, 수동 실행에 성공한 경우에만  확정해서 사용하세요."
+  - heading "일반·트리거·조건·설정 탭" [level=3]
+  - list:
+    - listitem: "일반: 기존에 서버를 실행했던 동일한 Windows 계정 사용, 사용자가 로그온할 때만 실행  선택"
+    - listitem: "트리거: 해당 사용자 로그온 시 실행"
+    - listitem: "조건: 유휴 상태에서만 시작하거나 유휴 종료 시 중지하는 옵션은 해제 권장"
+    - listitem: "설정: 이미 실행 중이면 새 인스턴스를 시작하지 않음"
+    - listitem: "설정: 작업이 다음 시간 이상 실행되면 중지  해제"
+    - listitem: "설정: 실패한 작업 다시 시작 사용 가능"
+  - paragraph:
+    - text: "특히 Microsoft 공식 문서상 작업 스케줄러의 기본 작업 실행 제한은  72시간 입니다. 따라서 장시간 실행하는 Open WebUI에서 실행 시간제한을 해제하라고 안내한 것은 맞습니다."
+    - button [ref=e157]
+  - text: "다만 작업 스케줄러의 자동 재시작은 모든 서버 장애를 해결하지는 않습니다. 프로세스는 살아 있지만 웹 서비스가 응답하지 않는 상황을 감지하려면 별도의 상태 점검이 필요합니다."
+  - heading "4. 현재 PC에서 최종 확인해야 할 명령어" [level=2]
+  - text: "서버가 현재 정상 실행 중이라면 종료하지 말고 회사 PC의 PowerShell에서 다음 명령어를 실행하세요.① 실제 서버 프로세스 확인 ② 해당 프로세스의 실행 명령 확인 이 명령으로 실제 수신 프로세스와 실행 명령을 확인할 수 있습니다.③ 기존 Open WebUI의 데이터 저장 위치 확인 이 결과만으로  DATA_DIR 이 확정되는 것은 아닙니다. 실행 명령, 환경변수, 데이터베이스 파일 위치까지 함께 검증해야 합니다.④ 기존 작업 스케줄러 등록 여부 확인 이미 등록되어 있다면 작업을 중복 생성하지 말고 기존 작업의 설정부터 확인하는 것이 안전합니다."
+  - heading "5. 기존 안내에서 추가로 보완할 사항" [level=2]
+  - text: "회사 PC에서 지속적으로 서비스를 제공하는 경우에는 다음 사항도 검토해야 합니다.현재의  로그온 시 자동 실행 방식은 개인 또는 사내 PoC에 적합한 1차 해결책 입니다. 상시 운영이 필요하다면 IT 보안 담당자의 승인 아래 Windows 서비스 기반 구성을 별도로 검토하는 것이 좋습니다."
+  - heading "최종 판단" [level=2]
+  - text: "작업 스케줄러 설정 방법 자체는 검증 완료 현재 회사 PC의 실행 스크립트는 아직 검증 미완료 결론: 앞서 안내한 작업 스케줄러의 입력값과 자동 실행 설정은 공식 문서 기준으로 타당하지만, 기존 Open WebUI 데이터 경로 및 실행 버전은 아직 확인되지 않았습니다. 우선 ①~③ 명령어의 결과를 알려주시면 기존 데이터와 설정을 유지하는 최종 실행 스크립트를 확정하겠습니다."
+  - button "복사" [ref=e158]
+  - button "공유" [ref=e159]
+  - button "프로젝트 소스에 추가" [ref=e160]
+  - button "소리 내어 읽기" [ref=e161]
+  - button "응답 다시 생성" [ref=e162]
+  - button "추가 액션" [ref=e163]
+  - text: "Windows 작업 스케줄러에  Open WebUI 자동 실행 작업 등록을 완료했다면, 이제 실제로 정상 작동하는지 검증 해야 합니다.현재 회사 PC의 환경을 기준으로  5단계 테스트 를 진행하겠습니다. 재부팅은 마지막에 진행하며, 먼저 기존 서버를 중단하지 않는 방법부터 확인합니다."
+  - heading "1. 검증 대상 및 합격 기준" [level=2]
+  - heading "2. 1단계 — 작업 스케줄러 등록 확인" [level=2]
+  - text: "회사 PC에서 PowerShell을 실행한 다음 입력하세요.예상 결과:Running 은 작업 프로세스가 실행 중이라는 의미이며, Open WebUI가 정상 제공 중이라는 보장은 아닙니다.다음으로 작업 실행 이력을 확인합니다.장시간 실행되는 서버에서는  0x41301 이 반드시 오류는 아닙니다."
+  - heading "3. 2단계 — 실제 작업 실행 테스트" [level=2]
+  - text: "실행 전 주의 이미 Open WebUI가 8080 포트에서 실행 중이라면 동일한 서버를 추가로 실행하지 마세요. 먼저 현재 포트 상태를 확인합니다.현재 서버가 실행되고 있지 않다면 작업 스케줄러에서 다음과 같이 실행하세요."
+  - list:
+    - listitem: "Win + R → taskschd.msc"
+    - listitem: "작업 스케줄러 라이브러리  선택"
+    - listitem: "OpenWebUI_AutoStart  선택"
+    - listitem: "마우스 우클릭 → 실행"
+    - listitem: "작업 상태가  실행 중 으로 변경되는지 확인"
+  - text: "PowerShell에서도 다음 명령으로 실행할 수 있습니다."
+  - heading "4. 3단계 — Open WebUI 서버 검증" [level=2]
+  - text: "회사 PC에서 실행합니다.① 서버 포트 확인 정상적인 외부 접속용 수신 주소 예시는 다음과 같습니다.② 웹 서비스 HTTP 응답 확인 일반적으로  HTTP/1.1 200 OK 와 같은 정상 응답을 기대할 수 있습니다. 단, HEAD  요청 처리 방식에 따라 다른 HTTP 상태가 나올 수 있으므로 필요하면 일반 GET 요청으로 재확인합니다."
+  - heading "5. 4단계 — 다른 PC에서 접속 테스트" [level=2]
+  - text: "다른 PC(192.168.114.88)의 PowerShell에서 실행하세요.정상 기준:그다음 브라우저에 접속합니다.http://192.168.113.143:8080 로그인 화면 표시, 로그인 성공, Qwen3:8B 모델 선택 및 채팅 응답까지 확인해야 Open WebUI 서비스가 실제로 정상 작동한다고 판단할 수 있습니다."
+  - heading "6. 5단계 — 자동 시작 검증" [level=2]
+  - text: "가장 중요한 단계입니다.처음에는  원격 데스크톱 연결 해제 테스트 부터 진행하세요."
+  - list:
+    - listitem: "Open WebUI가 정상 실행 중인지 확인합니다."
+    - listitem: "원격 데스크톱 창을 닫아 연결만 해제합니다. Windows 로그아웃은 하지 않습니다."
+    - listitem: "다른 PC에서 Open WebUI 접속을 다시 시도합니다."
+    - listitem: "정상 접속이 유지되는지 확인합니다."
+  - text: "그다음 업무에 영향이 없는 시간에, 저장할 작업을 모두 저장하고 Windows를 재부팅하세요.현재 작업이  로그온할 때  실행되도록 등록되어 있다면, 재부팅 이후  si3  계정에 로그인해야 자동 실행이 시작됩니다. 로그인 후 PowerShell을 수동으로 열지 않고 다른 PC에서 접속되는지 확인하세요.검증 결과 체크리스트"
+  - checkbox [ref=e164]
+  - label "스케줄러 작업이 활성화되어 있음" [ref=e165]
+  - checkbox [ref=e166]
+  - label "스케줄러 실행 결과 확인" [ref=e167]
+  - checkbox [ref=e168]
+  - label "회사 PC의 8080 포트 수신 정상" [ref=e169]
+  - checkbox [ref=e170]
+  - label "다른 PC에서 Open WebUI 접속 성공" [ref=e171]
+  - checkbox [ref=e172]
+  - label "원격 데스크톱 연결 해제 후 접속 유지" [ref=e173]
+  - checkbox [ref=e174]
+  - label "Windows 재로그인 후 자동 시작 성공" [ref=e175]
+  - text: "0 / 6 개 완료 검증 진행 중"
+  - button "검증 결과 분석 요청" [ref=e176]
+  - heading "최종 결론" [level=2]
+  - text: "작업 스케줄러 등록만으로 자동 실행 성공을 확정할 수 없으며, 작업 실행 결과·8080 포트·다른 PC 접속·Windows 재로그인 후 자동 시작 까지 확인해야 합니다. 우선 1단계의  Get-ScheduledTask 와  Get-ScheduledTaskInfo  실행 결과를 보내주시면 등록 상태부터 판정하겠습니다."
+  - button "복사" [ref=e177]
+  - button "공유" [ref=e178]
+  - button "프로젝트 소스에 추가" [ref=e179]
+  - button "소리 내어 읽기" [ref=e180]
+  - button "응답 다시 생성" [ref=e181]
+  - button "추가 액션" [ref=e182]
+  - text: "ChatGPT는 실수할 수 있습니다. 중요한 정보는 확인하세요."
+  - heading "최신 응답" [ref=e183] [level=4]
+  - status
+  - form:
+    - button "파일 등 추가" [ref=e184]
+    - textbox "ChatGPT에게 물어보세요" [ref=e185] [focused]
+    - button "ChatGPT 모델 선택" [ref=e186]: "Medium"
+    - button "음성 입력" [ref=e187]
+    - button "음성 대화 시작" [ref=e188]

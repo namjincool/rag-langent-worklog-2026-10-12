@@ -1,0 +1,384 @@
+[
+  {
+    "path": "artifacts/01_vector_db/.gitignore",
+    "origin": "GitHub namjincool/01_vector_db clone",
+    "source_name": ".gitignore",
+    "source_sha256": "f8701a33ce79d80f33a861364eb79d5ed27235e38adc0163a77a5d46ddfdd35b",
+    "archive_sha256": "f8701a33ce79d80f33a861364eb79d5ed27235e38adc0163a77a5d46ddfdd35b",
+    "bytes": 180,
+    "secret_redactions": 0
+  },
+  {
+    "path": "artifacts/01_vector_db/Hue_Keynote.pdf",
+    "origin": "GitHub namjincool/01_vector_db clone",
+    "source_name": "Hue_Keynote.pdf",
+    "source_sha256": "9d8217bb8971404e9abd2d43e03b978d5ca385d22581b8c15ed8de526f834290",
+    "archive_sha256": "9d8217bb8971404e9abd2d43e03b978d5ca385d22581b8c15ed8de526f834290",
+    "bytes": 13651002,
+    "secret_redactions": 0
+  },
+  {
+    "path": "artifacts/01_vector_db/Hue_Keynote_rag_source.md",
+    "origin": "GitHub namjincool/01_vector_db clone",
+    "source_name": "Hue_Keynote_rag_source.md",
+    "source_sha256": "5ccd179931d8426dd4010ed7c6a31d2a7afee9f877a28bfa76b92d19b4660903",
+    "archive_sha256": "5ccd179931d8426dd4010ed7c6a31d2a7afee9f877a28bfa76b92d19b4660903",
+    "bytes": 10582,
+    "secret_redactions": 0
+  },
+  {
+    "path": "artifacts/01_vector_db/README.md",
+    "origin": "GitHub namjincool/01_vector_db clone",
+    "source_name": "README.md",
+    "source_sha256": "4c2ce7c49a376ba4bed14c3b90300d010647efee6779a9e51c6f3f8cf0531242",
+    "archive_sha256": "4c2ce7c49a376ba4bed14c3b90300d010647efee6779a9e51c6f3f8cf0531242",
+    "bytes": 2705,
+    "secret_redactions": 0
+  },
+  {
+    "path": "artifacts/01_vector_db/requirements.txt",
+    "origin": "GitHub namjincool/01_vector_db clone",
+    "source_name": "requirements.txt",
+    "source_sha256": "6c93db2814c75e25075081ec919191d00b6ce7008495407ce71a23f8dc1210ec",
+    "archive_sha256": "6c93db2814c75e25075081ec919191d00b6ce7008495407ce71a23f8dc1210ec",
+    "bytes": 85,
+    "secret_redactions": 0
+  },
+  {
+    "path": "artifacts/01_vector_db/SECURITY.md",
+    "origin": "GitHub namjincool/01_vector_db clone",
+    "source_name": "SECURITY.md",
+    "source_sha256": "56b973bd341bc5cdbea4b01dd7c9bd1d125f3a16a9406e28b78cdcdce8c55463",
+    "archive_sha256": "56b973bd341bc5cdbea4b01dd7c9bd1d125f3a16a9406e28b78cdcdce8c55463",
+    "bytes": 1200,
+    "secret_redactions": 0
+  },
+  {
+    "path": "artifacts/01_vector_db/scripts/Set-TypeSafeUserEnv.ps1",
+    "origin": "GitHub namjincool/01_vector_db clone",
+    "source_name": "Set-TypeSafeUserEnv.ps1",
+    "source_sha256": "bb02e37344bac61b4905773e9ef063ae08773610624f119321254d9ab74b4e16",
+    "archive_sha256": "bb02e37344bac61b4905773e9ef063ae08773610624f119321254d9ab74b4e16",
+    "bytes": 1973,
+    "secret_redactions": 0
+  },
+  {
+    "path": "artifacts/01_vector_db/src/typesafe_rag_gate.py",
+    "origin": "GitHub namjincool/01_vector_db clone",
+    "source_name": "typesafe_rag_gate.py",
+    "source_sha256": "6c6a58ecca5d3107dbe3815be417deeb0d8166c799431a01edc143f047c39b1e",
+    "archive_sha256": "6c6a58ecca5d3107dbe3815be417deeb0d8166c799431a01edc143f047c39b1e",
+    "bytes": 3878,
+    "secret_redactions": 0
+  },
+  {
+    "path": "artifacts/01_vector_db/data/chroma_db/chroma.sqlite3",
+    "origin": "GitHub namjincool/01_vector_db clone",
+    "source_name": "chroma.sqlite3",
+    "source_sha256": "02e7fbc4642cb58ef445c5c88749f5c36ee22d32ed0dc985eaafdd58e81a0178",
+    "archive_sha256": "02e7fbc4642cb58ef445c5c88749f5c36ee22d32ed0dc985eaafdd58e81a0178",
+    "bytes": 417792,
+    "secret_redactions": 0
+  },
+  {
+    "path": "artifacts/01_vector_db/data/chroma_db/b9b78d6b-7852-4f46-8dee-3326179a9e2d/data_level0.bin",
+    "origin": "GitHub namjincool/01_vector_db clone",
+    "source_name": "data_level0.bin",
+    "source_sha256": "6d572723042e86717bc725244bb393ab20790247aa2a7a165f49a20af1c0e860",
+    "archive_sha256": "6d572723042e86717bc725244bb393ab20790247aa2a7a165f49a20af1c0e860",
+    "bytes": 167600,
+    "secret_redactions": 0
+  },
+  {
+    "path": "artifacts/01_vector_db/data/chroma_db/b9b78d6b-7852-4f46-8dee-3326179a9e2d/header.bin",
+    "origin": "GitHub namjincool/01_vector_db clone",
+    "source_name": "header.bin",
+    "source_sha256": "a0e81c3b22454233bc12d0762f06dcca48261a75231cf87c79b75e69a6c00150",
+    "archive_sha256": "a0e81c3b22454233bc12d0762f06dcca48261a75231cf87c79b75e69a6c00150",
+    "bytes": 100,
+    "secret_redactions": 0
+  },
+  {
+    "path": "artifacts/01_vector_db/data/chroma_db/b9b78d6b-7852-4f46-8dee-3326179a9e2d/length.bin",
+    "origin": "GitHub namjincool/01_vector_db clone",
+    "source_name": "length.bin",
+    "source_sha256": "c9e7e50acd3942fe3c1c1dcf735fe6c93ab5eef36e5c083b51156c0ccc2c03d7",
+    "archive_sha256": "c9e7e50acd3942fe3c1c1dcf735fe6c93ab5eef36e5c083b51156c0ccc2c03d7",
+    "bytes": 400,
+    "secret_redactions": 0
+  },
+  {
+    "path": "artifacts/01_vector_db/data/chroma_db/b9b78d6b-7852-4f46-8dee-3326179a9e2d/link_lists.bin",
+    "origin": "GitHub namjincool/01_vector_db clone",
+    "source_name": "link_lists.bin",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0,
+    "secret_redactions": 0
+  },
+  {
+    "path": "artifacts/langent-plugin/original-gitignore.txt",
+    "origin": "existing local Langent plugin",
+    "source_name": ".gitignore",
+    "source_sha256": "e085f16ae8bc56f63caa4971c3dfe0a8b1de261710f7d49e0dd7741faddeeda8",
+    "archive_sha256": "e085f16ae8bc56f63caa4971c3dfe0a8b1de261710f7d49e0dd7741faddeeda8",
+    "bytes": 1295,
+    "secret_redactions": 0
+  },
+  {
+    "path": "artifacts/langent-plugin/.mcp.json",
+    "origin": "existing local Langent plugin",
+    "source_name": ".mcp.json",
+    "source_sha256": "1569abc5644993186ffe9e555d1423eaac7def817fc32cfcec16ec55a67b4d78",
+    "archive_sha256": "1569abc5644993186ffe9e555d1423eaac7def817fc32cfcec16ec55a67b4d78",
+    "bytes": 958,
+    "secret_redactions": 0
+  },
+  {
+    "path": "artifacts/langent-plugin/INSTALL.bat",
+    "origin": "existing local Langent plugin",
+    "source_name": "INSTALL.bat",
+    "source_sha256": "4f12ec741f8817dcf186fcc7bb70b766c1465faf8c4ad95ee3d983ccbc204b1b",
+    "archive_sha256": "4f12ec741f8817dcf186fcc7bb70b766c1465faf8c4ad95ee3d983ccbc204b1b",
+    "bytes": 7523,
+    "secret_redactions": 0
+  },
+  {
+    "path": "artifacts/langent-plugin/LICENSE",
+    "origin": "existing local Langent plugin",
+    "source_name": "LICENSE",
+    "source_sha256": "6de37aa8dbfbe1fa5e4d8506c902456ae68f4303d73ba66a05eaa53994834361",
+    "archive_sha256": "6de37aa8dbfbe1fa5e4d8506c902456ae68f4303d73ba66a05eaa53994834361",
+    "bytes": 12327,
+    "secret_redactions": 0
+  },
+  {
+    "path": "artifacts/langent-plugin/mcp_config_py.json",
+    "origin": "existing local Langent plugin",
+    "source_name": "mcp_config_py.json",
+    "source_sha256": "1569abc5644993186ffe9e555d1423eaac7def817fc32cfcec16ec55a67b4d78",
+    "archive_sha256": "1569abc5644993186ffe9e555d1423eaac7def817fc32cfcec16ec55a67b4d78",
+    "bytes": 958,
+    "secret_redactions": 0
+  },
+  {
+    "path": "artifacts/langent-plugin/README.ko.md",
+    "origin": "existing local Langent plugin",
+    "source_name": "README.ko.md",
+    "source_sha256": "b2debf6f5e98b76936f964dd05dba8a4a6b4823b88bafe250501b72c98fb6240",
+    "archive_sha256": "b2debf6f5e98b76936f964dd05dba8a4a6b4823b88bafe250501b72c98fb6240",
+    "bytes": 25867,
+    "secret_redactions": 0
+  },
+  {
+    "path": "artifacts/langent-plugin/README.md",
+    "origin": "existing local Langent plugin",
+    "source_name": "README.md",
+    "source_sha256": "7fa0ce97fd8f2c17f29fb9b9662dc87b3128704b4c646ad6f6f77962fed0e479",
+    "archive_sha256": "7fa0ce97fd8f2c17f29fb9b9662dc87b3128704b4c646ad6f6f77962fed0e479",
+    "bytes": 23225,
+    "secret_redactions": 0
+  },
+  {
+    "path": "artifacts/langent-plugin/RUN.bat",
+    "origin": "existing local Langent plugin",
+    "source_name": "RUN.bat",
+    "source_sha256": "2bf32ae10291e6ce8e89e6c42ee93d4e1983d92e3f9546e905089c9da1cbb7bd",
+    "archive_sha256": "2bf32ae10291e6ce8e89e6c42ee93d4e1983d92e3f9546e905089c9da1cbb7bd",
+    "bytes": 10102,
+    "secret_redactions": 0
+  },
+  {
+    "path": "artifacts/langent-plugin/UNINSTALL.bat",
+    "origin": "existing local Langent plugin",
+    "source_name": "UNINSTALL.bat",
+    "source_sha256": "a20954920f1bec2dfbfb7ed6080c0c0ec64d2f70201760fa8fa5dcff20decb21",
+    "archive_sha256": "a20954920f1bec2dfbfb7ed6080c0c0ec64d2f70201760fa8fa5dcff20decb21",
+    "bytes": 8336,
+    "secret_redactions": 0
+  },
+  {
+    "path": "artifacts/langent-plugin/USER_GUIDE.md",
+    "origin": "existing local Langent plugin",
+    "source_name": "USER_GUIDE.md",
+    "source_sha256": "22f680e6649078e634e1d6040e6633087b4d9b96af5f21b87a8994fa58deaa95",
+    "archive_sha256": "22f680e6649078e634e1d6040e6633087b4d9b96af5f21b87a8994fa58deaa95",
+    "bytes": 22736,
+    "secret_redactions": 0
+  },
+  {
+    "path": "artifacts/langent-plugin/사용설명서.md",
+    "origin": "existing local Langent plugin",
+    "source_name": "사용설명서.md",
+    "source_sha256": "c3132acaddac6a284dcea1e1260946803892a170444dcb58051204ca2e016b33",
+    "archive_sha256": "c3132acaddac6a284dcea1e1260946803892a170444dcb58051204ca2e016b33",
+    "bytes": 25699,
+    "secret_redactions": 0
+  },
+  {
+    "path": "artifacts/langent-plugin/.codex-plugin/plugin.json",
+    "origin": "existing local Langent plugin",
+    "source_name": "plugin.json",
+    "source_sha256": "3c3615a912abe2ff9bd2d02c617df99ef3897205d6e05fecbe5af3f4fa468d41",
+    "archive_sha256": "3c3615a912abe2ff9bd2d02c617df99ef3897205d6e05fecbe5af3f4fa468d41",
+    "bytes": 1287,
+    "secret_redactions": 0
+  },
+  {
+    "path": "artifacts/knccs-graph/(′26년 KNCCS 노후 네트워크장비 교체사업) 정성제안서_원본_1권.md",
+    "origin": "existing 2026-07-28 KNCCS Langent graph artifact",
+    "source_name": "(′26년 KNCCS 노후 네트워크장비 교체사업) 정성제안서_원본_1권.md",
+    "source_sha256": "c3f3a5a23d89562efb645801f4131a0fee5e55c13b69a8f1f278d1dfb80afe61",
+    "archive_sha256": "c3f3a5a23d89562efb645801f4131a0fee5e55c13b69a8f1f278d1dfb80afe61",
+    "bytes": 555422,
+    "secret_redactions": 0
+  },
+  {
+    "path": "artifacts/knccs-graph/build_knccs_knowledge_graph.py",
+    "origin": "existing 2026-07-28 KNCCS Langent graph artifact",
+    "source_name": "build_knccs_knowledge_graph.py",
+    "source_sha256": "7b4707086d2471ecaf78b781e26e2aa4b1fb361bae69c53a5fab70113709f339",
+    "archive_sha256": "7b4707086d2471ecaf78b781e26e2aa4b1fb361bae69c53a5fab70113709f339",
+    "bytes": 10360,
+    "secret_redactions": 0
+  },
+  {
+    "path": "artifacts/knccs-graph/knowledge_graph_report.json",
+    "origin": "existing 2026-07-28 KNCCS Langent graph artifact",
+    "source_name": "knowledge_graph_report.json",
+    "source_sha256": "5ee55eb70bff4afdcee21fcf62977cda2a2b7ef3c6e3f7d6cb740baaf4ef47a2",
+    "archive_sha256": "5ee55eb70bff4afdcee21fcf62977cda2a2b7ef3c6e3f7d6cb740baaf4ef47a2",
+    "bytes": 1100,
+    "secret_redactions": 0
+  },
+  {
+    "path": "evidence/local-runtime/langent/server/mcp_server.py",
+    "origin": "existing installed Langent source snapshot; Git revision unavailable",
+    "source_name": "mcp_server.py",
+    "source_sha256": "6d7abe50e3f170af1acf916fb68008d299d3ab8cd85d030db5df3bfb7da1458b",
+    "archive_sha256": "6d7abe50e3f170af1acf916fb68008d299d3ab8cd85d030db5df3bfb7da1458b",
+    "bytes": 6017,
+    "secret_redactions": 0
+  },
+  {
+    "path": "evidence/local-runtime/langent/brain.py",
+    "origin": "existing installed Langent source snapshot; Git revision unavailable",
+    "source_name": "brain.py",
+    "source_sha256": "651ee771e56962c82532dce7b02d4c651f43c31d620837b2d850502cac6c782e",
+    "archive_sha256": "651ee771e56962c82532dce7b02d4c651f43c31d620837b2d850502cac6c782e",
+    "bytes": 12342,
+    "secret_redactions": 0
+  },
+  {
+    "path": "evidence/local-runtime/langent/llm_proxy.py",
+    "origin": "existing installed Langent source snapshot; Git revision unavailable",
+    "source_name": "llm_proxy.py",
+    "source_sha256": "e4769f4f793c63610808315994dbcd1e0dc80b948d442688e45a22f9d142d1cf",
+    "archive_sha256": "e4769f4f793c63610808315994dbcd1e0dc80b948d442688e45a22f9d142d1cf",
+    "bytes": 4186,
+    "secret_redactions": 0
+  },
+  {
+    "path": "evidence/local-runtime/langent/store/vector.py",
+    "origin": "existing installed Langent source snapshot; Git revision unavailable",
+    "source_name": "vector.py",
+    "source_sha256": "81916e29ae8ceb9784aaa822e93701643a067590a42f7a6d77923fc018b8219d",
+    "archive_sha256": "81916e29ae8ceb9784aaa822e93701643a067590a42f7a6d77923fc018b8219d",
+    "bytes": 9861,
+    "secret_redactions": 0
+  },
+  {
+    "path": "evidence/local-runtime/langent/store/graph.py",
+    "origin": "existing installed Langent source snapshot; Git revision unavailable",
+    "source_name": "graph.py",
+    "source_sha256": "d124e6288ee6bde1a23fbf2a42ca6b3ef56343bbd1f4d739f251804f5669e24f",
+    "archive_sha256": "d124e6288ee6bde1a23fbf2a42ca6b3ef56343bbd1f4d739f251804f5669e24f",
+    "bytes": 7767,
+    "secret_redactions": 0
+  },
+  {
+    "path": "evidence/local-runtime/pyproject.toml",
+    "origin": "existing installed Langent source snapshot; Git revision unavailable",
+    "source_name": "pyproject.toml",
+    "source_sha256": "f18ea8b61f7ba59392b0d3ba444127924e2b0f0cdf24dd3073c8f625d78ffe34",
+    "archive_sha256": "f18ea8b61f7ba59392b0d3ba444127924e2b0f0cdf24dd3073c8f625d78ffe34",
+    "bytes": 1773,
+    "secret_redactions": 0
+  },
+  {
+    "path": "evidence/local-runtime/LICENSE",
+    "origin": "existing installed Langent source snapshot; Git revision unavailable",
+    "source_name": "LICENSE",
+    "source_sha256": "5c8cecf8d093b842a65d743a197afedcab21eb641879992055cec176dc5a5708",
+    "archive_sha256": "5c8cecf8d093b842a65d743a197afedcab21eb641879992055cec176dc5a5708",
+    "bytes": 9366,
+    "secret_redactions": 0
+  },
+  {
+    "path": "artifacts/langent-runtime-data/chroma_db/chroma.sqlite3",
+    "origin": "existing local runtime vector-data snapshot; files read without starting runtime",
+    "source_name": "chroma.sqlite3",
+    "source_sha256": "edb2ba17329636b53254f4443502372e680ce43ac9b4f11e4c33881736702ef6",
+    "archive_sha256": "edb2ba17329636b53254f4443502372e680ce43ac9b4f11e4c33881736702ef6",
+    "bytes": 614400,
+    "secret_redactions": 0
+  },
+  {
+    "path": "artifacts/langent-runtime-data/chroma_db/2eb705f7-ae1a-41ff-acab-18cad6e2a61c/data_level0.bin",
+    "origin": "existing local runtime vector-data snapshot; files read without starting runtime",
+    "source_name": "data_level0.bin",
+    "source_sha256": "feba55780b583946ec3fc30790dc05129621763c8a8e596ad9da37fd78b27cb9",
+    "archive_sha256": "feba55780b583946ec3fc30790dc05129621763c8a8e596ad9da37fd78b27cb9",
+    "bytes": 167600,
+    "secret_redactions": 0
+  },
+  {
+    "path": "artifacts/langent-runtime-data/chroma_db/2eb705f7-ae1a-41ff-acab-18cad6e2a61c/header.bin",
+    "origin": "existing local runtime vector-data snapshot; files read without starting runtime",
+    "source_name": "header.bin",
+    "source_sha256": "a0e81c3b22454233bc12d0762f06dcca48261a75231cf87c79b75e69a6c00150",
+    "archive_sha256": "a0e81c3b22454233bc12d0762f06dcca48261a75231cf87c79b75e69a6c00150",
+    "bytes": 100,
+    "secret_redactions": 0
+  },
+  {
+    "path": "artifacts/langent-runtime-data/chroma_db/2eb705f7-ae1a-41ff-acab-18cad6e2a61c/length.bin",
+    "origin": "existing local runtime vector-data snapshot; files read without starting runtime",
+    "source_name": "length.bin",
+    "source_sha256": "e0097e97b3b626c503ed66e288783c55a358341194f670c3f23e68bbebe5b6a4",
+    "archive_sha256": "e0097e97b3b626c503ed66e288783c55a358341194f670c3f23e68bbebe5b6a4",
+    "bytes": 400,
+    "secret_redactions": 0
+  },
+  {
+    "path": "artifacts/langent-runtime-data/chroma_db/2eb705f7-ae1a-41ff-acab-18cad6e2a61c/link_lists.bin",
+    "origin": "existing local runtime vector-data snapshot; files read without starting runtime",
+    "source_name": "link_lists.bin",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0,
+    "secret_redactions": 0
+  },
+  {
+    "path": "artifacts/knccs-graph/KNCCS_GraphRAG_Ontology.svg",
+    "origin": "https://chatgpt.com/library/file/libfile_19886e9567008191b0c57e30a6b78075",
+    "source_name": "KNCCS_GraphRAG_Ontology.svg",
+    "source_sha256": "eb006571234937eeb213b0152f21b32c5b2b884a828e527ce8eba253db1244fd",
+    "archive_sha256": "eb006571234937eeb213b0152f21b32c5b2b884a828e527ce8eba253db1244fd",
+    "bytes": 12704,
+    "secret_redactions": 0,
+    "displayed_date_label": "7월 28일"
+  },
+  {
+    "path": "artifacts/namjin-ai-site/served.html",
+    "origin": "https://namjin-ai-systems.namjini.chatgpt.site/",
+    "source_name": "served HTML after user-authorized login",
+    "source_sha256": "20d83b2d2acca8b92065d39bc7c536acbde2586f4a90dd3c06f6812bbf20de98",
+    "archive_sha256": "20d83b2d2acca8b92065d39bc7c536acbde2586f4a90dd3c06f6812bbf20de98",
+    "bytes": 31883,
+    "secret_redactions": 0,
+    "source_get_status": 200,
+    "source_content_type": "text/html",
+    "note": "Served HTML, not a verified original editable repository export"
+  }
+]

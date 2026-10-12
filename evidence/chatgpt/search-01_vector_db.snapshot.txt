@@ -1,0 +1,20 @@
+# note: interactive (clickable / focusable) elements only.
+- title: "ChatGPT" [url=https://chatgpt.com/library]
+- dialog "전역 검색":
+  - banner:
+    - text: "검색"
+    - combobox "검색" [ref=e239] [focused] [placeholder="검색…"]: "01_vector_db"
+    - button "지우기" [ref=e240]
+    - button "전체 검색 닫기" [ref=e241]
+    - tablist "검색 결과 유형":
+      - tab "전체" [ref=e242] [selected]
+      - tab "채팅" [ref=e243]
+      - tab "이미지" [ref=e244]
+      - tab "문서" [ref=e245]
+      - tab "프로젝트" [ref=e246]
+    - button "라이브러리 소스 필터링" [ref=e247]
+  - tabpanel "전체":
+    - listbox [ref=e275]
+    - status: "검색 결과 불러오는 중…"
+- iframe:
+  - button "Open selection tools" [ref=f3e1]

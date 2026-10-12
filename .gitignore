@@ -1,0 +1,11 @@
+_tools/
+_source_clone/
+_session_inventory.json
+_additional_inventory.json
+_repository_created.json
+_upload_files.json
+.env
+.env.*
+!.env.example
+**/__pycache__/
+*.pyc
